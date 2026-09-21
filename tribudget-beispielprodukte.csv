@@ -1,24 +1,24 @@
-category,tier,produkt,preis_eur,link,affiliate_partner,provision,quelle_hinweis,stand
-rad,Budget,Decathlon Van Rysel (Einstiegsmodell),,https://www.decathlon.at/9179-rennrader,unbestaetigt,,Preis modellabhaengig - vor Ort/online pruefen,2026-09
-rad,Mittelklasse,Liv Langma Advanced 3 (Beispielpreis),1529,https://www.bike-components.de/de/rennrad/,bike-components,,Preis bei bike24 beobachtet - Link zu bike-components (Affiliate-faehig),2026-09
-rad,Mittelklasse,Orbea Orca M30i - 105 Di2 (Beispielpreis),2349,https://www.bike-components.de/de/rennrad/,bike-components,,Preis bei bike24 beobachtet - Link zu bike-components,2026-09
-rad,Premium,Cube Agree C:62 One (Beispielpreis),2319,https://www.bike-components.de/de/rennrad/,bike-components,,Preis bei bike24 beobachtet - Link zu bike-components,2026-09
-rad,Premium,BMC Teammachine R01 Five (Beispielpreis),4349,https://www.bike-components.de/de/rennrad/,bike-components,,Preis bei bike24 beobachtet - Link zu bike-components,2026-09
-rad,Dediziertes Triathlonrad,Cube Aerium C:68X SLT (Beispielpreis),7199,https://www.bike-components.de/de/rennrad/,bike-components,,Preis bei bike24 beobachtet - dediziertes Triathlonrad dort nicht separat bestaetigt,2026-09
-rad,Alternative,Bontrager Zubehoer (Trek-Partnerprogramm),,https://www.trekbikes.com/de/de_DE/c/road,Trek/Bontrager,bis 8% Aftermarket / 4% Bike,US-Partnerprogramm - Shop-Link ist deutsche Trek-Seite,2026-09
-radOpt,Alle Stufen,Laufraeder/Aero-Upgrades,,https://www.bike-components.de/de/komponenten/laufraeder/,bike-components,,Affiliate-faehig - grosse Modellspanne kein Einzelpreis,2026-09
-neo,Budget,Orca Athlex Float,255,https://www.bike24.de/marken/orca,unbestaetigt (bike24),,kein bestaetigtes Partnerprogramm bei bike24 gefunden,2026-09
-neo,Mittelklasse,Zone3 Aspire Wetsuit (Damen),480,https://triathlon.de/collections/schwimmen,unbestaetigt (triathlon.de),,Sale-Preis - Partnerprogramm nicht geprueft,2026-09
-neo,Premium/Marke,Blueseventy Wetsuits (diverse Modelle),,https://blueseventy.eu/de/collections/wetsuits,Blueseventy,10%,Bestaetigtes Partnerprogramm ueber AvantLink - echter Shop-Link (nicht die Partner-Anmeldeseite),2026-09
-uhr,Budget,Garmin Forerunner 55,155,https://www.bike24.de/pulsmesser-sportuhren.html/f.marke.garmin,unbestaetigt (bike24),,kein bestaetigtes Partnerprogramm bei bike24 gefunden,2026-09
-uhr,Budget-Mittelklasse,Polar Pacer / Polar-Sortiment,229,https://www.polar.com/de/all-watches,Polar,10%,Bestaetigtes Partnerprogramm ueber ShareASale - echter Shop-Link,2026-09
-uhr,Mittelklasse,Coros Pace 3,,https://www.bike24.de/pulsmesser-sportuhren.html/f.marke.garmin,unbestaetigt,,Unter 350 EUR laut Vergleichstest - kein direkter Coros-Link,2026-09
-uhr,Mittelklasse-Hoch,Garmin Forerunner 265,600,https://www.bike24.de/pulsmesser-sportuhren.html/f.marke.garmin,unbestaetigt (bike24),,Preis via Drittanbieter-Listing - stark schwankend,2026-09
-trisuit,Budget,Zone3 Activate Trisuit,,https://www.bike24.de/p1710500.html,unbestaetigt (bike24),,Kein Preis recherchiert,2026-09
-trisuit,Mittelklasse,Castelli TRI-FIT Vanguard,,https://www.triathlonworld.nl/de/blogs/blog/der-beste-trikot-fur-jede-triathlon-distanz,unbestaetigt,,Kein Preis recherchiert - als guter Einstieg empfohlen,2026-09
-schwimmzub,Budget,Sailfish Goggle Sweden Silver Mirror,16,https://triathlon.de/collections/schwimmbrille,unbestaetigt (triathlon.de),,,2026-09
-schwimmzub,Budget-Mittelklasse,Speedo Schwimmbrillen (diverse),18,https://de.speedo.com/schwimmbrillen/alle-schwimmbrillen.list,Speedo,10%,Bestaetigtes Partnerprogramm ueber Awin - echter Shop-Link,2026-09
-schwimmzub,Mittelklasse,Zone3 Venator-X Polarised,45,https://triathlon.de/collections/schwimmbrille,unbestaetigt (triathlon.de),,,2026-09
-schuhe,Budget-Mittelklasse,Laufschuh-Sortiment (Nike/Asics/Saucony etc.),,https://www.tradeinn.com/runnerinn/de/herrenschuhe-running-schuhe/10004/s,Runnerinn/Tradeinn,5%,Bestaetigtes Partnerprogramm - echter Shop-Link (deutsch),2026-09
-schuhe,Referenz,Asics Novablast 6 (kein Preis bestaetigt),,https://www.bergzeit.de/magazin/beste-laufschuhe-testsieger/,unbestaetigt,,Testuebersicht statt Shop - nur als Modell-Referenz,2026-09
-renntag,Budget,Gele/Nutrition allgemein,,,unbestaetigt,,Kein Affiliate-Partner fuer Maurten/SiS/Dextro gefunden - offene Recherche,2026-09
+category,tier,produkt,preis_eur,link,quelle_hinweis,stand
+rad,Budget,Decathlon Van Rysel (Einstiegsmodell),,https://www.decathlon.at/9179-rennrader,Preis modellabhaengig - vor Ort/online pruefen,2026-09
+rad,Mittelklasse,Liv Langma Advanced 3 (Beispielpreis),1529,https://www.bike-components.de/de/rennrad/,Preis bei bike24 beobachtet,2026-09
+rad,Mittelklasse,Orbea Orca M30i - 105 Di2 (Beispielpreis),2349,https://www.bike-components.de/de/rennrad/,Preis bei bike24 beobachtet,2026-09
+rad,Premium,Cube Agree C:62 One (Beispielpreis),2319,https://www.bike-components.de/de/rennrad/,Preis bei bike24 beobachtet,2026-09
+rad,Premium,BMC Teammachine R01 Five (Beispielpreis),4349,https://www.bike-components.de/de/rennrad/,Preis bei bike24 beobachtet,2026-09
+rad,Dediziertes Triathlonrad,Cube Aerium C:68X SLT (Beispielpreis),7199,https://www.bike-components.de/de/rennrad/,,2026-09
+rad,Alternative,Bontrager Zubehoer,,https://www.trekbikes.com/de/de_DE/c/road,,2026-09
+radOpt,Alle Stufen,Laufraeder/Aero-Upgrades,,https://www.bike-components.de/de/komponenten/laufraeder/,,2026-09
+neo,Budget,Orca Athlex Float,255,https://www.bike24.de/marken/orca,,2026-09
+neo,Mittelklasse,Zone3 Aspire Wetsuit (Damen),480,https://triathlon.de/collections/schwimmen,,2026-09
+neo,Premium/Marke,Blueseventy Wetsuits (diverse Modelle),,https://blueseventy.eu/de/collections/wetsuits,,2026-09
+uhr,Budget,Garmin Forerunner 55,155,https://www.bike24.de/pulsmesser-sportuhren.html/f.marke.garmin,,2026-09
+uhr,Budget-Mittelklasse,Polar Pacer / Polar-Sortiment,229,https://www.polar.com/de/all-watches,,2026-09
+uhr,Mittelklasse,Coros Pace 3,,https://www.bike24.de/pulsmesser-sportuhren.html/f.marke.garmin,,2026-09
+uhr,Mittelklasse-Hoch,Garmin Forerunner 265,600,https://www.bike24.de/pulsmesser-sportuhren.html/f.marke.garmin,Preis via Drittanbieter-Listing - stark schwankend,2026-09
+trisuit,Budget,Zone3 Activate Trisuit,,https://www.bike24.de/p1710500.html,,2026-09
+trisuit,Mittelklasse,Castelli TRI-FIT Vanguard,,https://www.triathlonworld.nl/de/blogs/blog/der-beste-trikot-fur-jede-triathlon-distanz,,2026-09
+schwimmzub,Budget,Sailfish Goggle Sweden Silver Mirror,16,https://triathlon.de/collections/schwimmbrille,,2026-09
+schwimmzub,Budget-Mittelklasse,Speedo Schwimmbrillen (diverse),18,https://de.speedo.com/schwimmbrillen/alle-schwimmbrillen.list,,2026-09
+schwimmzub,Mittelklasse,Zone3 Venator-X Polarised,45,https://triathlon.de/collections/schwimmbrille,,2026-09
+schuhe,Budget-Mittelklasse,Laufschuh-Sortiment (Nike/Asics/Saucony etc.),,https://www.tradeinn.com/runnerinn/de/herrenschuhe-running-schuhe/10004/s,,2026-09
+schuhe,Referenz,Asics Novablast 6 (kein Preis bestaetigt),,https://www.bergzeit.de/magazin/beste-laufschuhe-testsieger/,Testuebersicht statt Shop - nur als Modell-Referenz,2026-09
+renntag,Budget,Gele/Nutrition allgemein,,,,2026-09
