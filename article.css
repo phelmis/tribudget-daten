@@ -1,0 +1,106 @@
+/* TriaBudget – gemeinsames Stylesheet für Ratgeber-Seiten.
+   Übernimmt die Design-Tokens aus index.html, damit alle Seiten wie
+   ein System aussehen. Bei Änderungen an den Farben/Schriften in
+   index.html bitte hier mitziehen. */
+
+@font-face{font-family:"Barlow Condensed";src:url(barlow-condensed-800.woff2) format("woff2");font-weight:800;font-style:normal;font-display:swap;}
+@font-face{font-family:"Barlow Condensed";src:url(barlow-condensed-800-italic.woff2) format("woff2");font-weight:800;font-style:italic;font-display:swap;}
+@font-face{font-family:"Inter Tight";src:url(inter-tight-var.woff2) format("woff2");font-weight:100 900;font-style:normal;font-display:swap;}
+
+:root{
+  --paper:#F5F1E8;
+  --paper2:#ECE6D8;
+  --card:#FBF9F4;
+  --ink:#14120F;
+  --muted:#645E52;
+  --line:#D8D0BE;
+  --line2:#B9B09A;
+  --accent:#C7391A;
+  --accent-dark:#A62E14;
+  --display:"Barlow Condensed","Arial Narrow","Roboto Condensed",Impact,sans-serif;
+  --sans:"Inter Tight",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --gutter:clamp(20px,4vw,48px);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+img{display:block;max-width:100%;}
+a{color:inherit;}
+h1,h2,h3{font-family:var(--display);font-weight:800;margin:0;letter-spacing:0.005em;text-transform:uppercase;}
+.wrap{max-width:1240px;margin:0 auto;padding:0 var(--gutter);}
+.kicker{font-size:12.5px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin:0 0 14px;}
+.skip{position:absolute;left:-9999px;top:8px;background:var(--ink);color:#fff;padding:8px 14px;z-index:99;}
+.skip:focus{left:8px;}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+
+/* ---------- Topbar (identisch zu index.html) ---------- */
+.topbar{display:flex;align-items:center;justify-content:space-between;max-width:1240px;margin:0 auto;padding:18px var(--gutter);}
+.brand{font-family:var(--display);font-weight:800;font-size:30px;line-height:1;text-decoration:none;letter-spacing:0.01em;text-transform:uppercase;}
+.brand em{font-style:italic;color:var(--accent);}
+.topnav{display:flex;gap:26px;font-size:14.5px;font-weight:500;}
+.topnav a{text-decoration:none;color:var(--ink);padding:6px 0;border-bottom:1px solid transparent;}
+.topnav a:hover{border-color:var(--ink);}
+@media(max-width:640px){.topnav a:not(.keep){display:none;}}
+
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;border:0;font:800 20px/1 var(--display);letter-spacing:.04em;text-transform:uppercase;padding:17px 28px;border-radius:2px;cursor:pointer;text-decoration:none;transition:background .15s;}
+.btn:hover{background:var(--accent-dark);}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink);}
+.btn.ghost:hover{background:var(--ink);color:var(--paper);}
+
+/* ---------- Artikel-Kopf ---------- */
+.art-hero{padding:clamp(28px,5vw,56px) 0 clamp(20px,4vw,32px);border-bottom:1px solid var(--line);}
+.art-hero h1{font-size:clamp(38px,6vw,72px);line-height:.96;max-width:20ch;}
+.art-meta{font-size:14px;color:var(--muted);margin:18px 0 0;}
+.breadcrumb{font-size:13.5px;color:var(--muted);margin:0 0 18px;}
+.breadcrumb a{text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line2);}
+.breadcrumb a:hover{color:var(--accent-dark);text-decoration-color:var(--accent);}
+
+/* ---------- Artikel-Text ---------- */
+.article{max-width:720px;margin:0 auto;padding:clamp(32px,5vw,56px) var(--gutter) 24px;}
+.article .lede{font-size:20px;color:#3A362E;margin:0 0 8px;max-width:60ch;}
+.article h2{font-size:clamp(26px,3.2vw,34px);line-height:1.05;margin:44px 0 14px;}
+.article h3{font-size:20px;line-height:1.15;margin:26px 0 8px;text-transform:none;}
+.article p{font-size:16.5px;color:#2E2B25;margin:0 0 16px;max-width:66ch;}
+.article ul,.article ol{margin:0 0 16px;padding-left:22px;max-width:64ch;}
+.article li{margin:0 0 8px;font-size:16.5px;color:#2E2B25;}
+.article a{color:var(--accent-dark);text-underline-offset:3px;}
+.article a:hover{color:var(--accent);}
+.article strong{font-weight:700;}
+
+/* Preistabelle */
+.pricetable{width:100%;max-width:66ch;border-collapse:collapse;margin:8px 0 24px;font-size:15.5px;}
+.pricetable caption{text-align:left;font-size:13px;color:var(--muted);margin-bottom:8px;caption-side:top;}
+.pricetable th,.pricetable td{text-align:left;padding:10px 14px 10px 0;border-bottom:1px solid var(--line);}
+.pricetable th{font-weight:600;color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.04em;}
+.pricetable td.num,.pricetable th.num{text-align:right;padding-right:0;font-variant-numeric:tabular-nums;}
+.pricetable tr:last-child td{border-bottom:2px solid var(--ink);font-weight:700;}
+
+/* Info-/Warnbox im Textfluss */
+.callout{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);padding:16px 20px;margin:0 0 24px;max-width:64ch;}
+.callout p{margin:0;font-size:15.5px;}
+.callout p + p{margin-top:8px;}
+
+/* CTA-Box mitten im Artikel */
+.cta-box{background:var(--ink);color:#fff;padding:clamp(28px,4vw,40px);margin:40px 0;max-width:720px;}
+.cta-box .kicker{color:#FFB39D;}
+.cta-box h3{color:#fff;font-size:clamp(24px,3vw,32px);margin:0 0 10px;text-transform:uppercase;}
+.cta-box p{color:#D8D2C2;margin:0 0 18px;max-width:52ch;}
+
+/* Weiterlesen-Kacheln */
+.more{max-width:720px;margin:56px auto 0;padding:32px var(--gutter) 0;border-top:1px solid var(--line);}
+.more h2{font-size:22px;margin:0 0 18px;}
+.more-list{list-style:none;margin:0;padding:0;display:grid;gap:14px;}
+.more-list a{display:block;text-decoration:none;padding:16px 18px;border:1px solid var(--line2);background:var(--card);transition:border-color .12s;}
+.more-list a:hover{border-color:var(--ink);}
+.more-list .tag-d{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:4px;}
+.more-list h3{font-size:19px;text-transform:none;margin:0;}
+
+/* ---------- Footer (identisch zu index.html) ---------- */
+.site-footer{background:var(--ink);color:#CFC8B8;}
+.foot-in{max-width:1240px;margin:0 auto;padding:44px var(--gutter);display:flex;gap:32px;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;}
+.foot-in .brand{color:#fff;font-size:34px;}
+.foot-in p{margin:12px 0 0;font-size:14px;max-width:56ch;color:#A9A290;}
+.foot-links{display:flex;gap:22px;font-size:14.5px;}
+.foot-links a{color:#E8E2D3;text-decoration:none;border-bottom:1px solid #5A544A;padding-bottom:2px;}
+.foot-links a:hover{color:#fff;border-color:#fff;}

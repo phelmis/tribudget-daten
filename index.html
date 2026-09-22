@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TriaBudget &ndash; Was du f&uuml;r deinen ersten Triathlon wirklich brauchst</title>
 <meta name="description" content="Kostenloser Ausr&uuml;stungsplaner f&uuml;r Triathlon: Budget eingeben und eine klare Kaufreihenfolge mit realistischen Preisspannen f&uuml;r neu und gebraucht erhalten.">
+<link rel="canonical" href="https://www.triabudget.com/">
 <meta name="theme-color" content="#F5F1E8">
 <meta property="og:type" content="website">
 <meta property="og:title" content="TriaBudget &ndash; Dein erster Triathlon. Was du wirklich brauchst.">
@@ -268,6 +269,16 @@ details.deep p{font-size:15px;color:var(--muted);}
   .print-head p{margin:6px 0 0;font-size:11pt;color:#444;}
 }
 
+/* ---------- Ratgeber ---------- */
+.rg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,32px);}
+@media(max-width:820px){.rg-grid{grid-template-columns:1fr;}}
+.rg-card{display:block;text-decoration:none;height:100%;background:var(--card);border:1px solid var(--line2);padding:clamp(22px,3vw,30px);transition:border-color .12s;}
+.rg-card:hover{border-color:var(--ink);}
+.rg-card .tag-d{display:block;font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;}
+.rg-card h3{font-size:26px;line-height:1.05;margin:0 0 10px;}
+.rg-card p{margin:0;color:#3A362E;font-size:15.5px;}
+.rg-card .rg-more{display:inline-block;margin-top:16px;font-size:14px;font-weight:600;color:var(--accent-dark);}
+
 /* Kicker: Vorrang vor Absatzstilen der Sektionen */
 .section-head p.kicker,.calc-intro p.kicker,.method-grid p.kicker,.res-head p.kicker,.hero-copy p.kicker{font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 14px;max-width:none;}
 
@@ -283,6 +294,7 @@ details.deep p{font-size:15px;color:var(--muted);}
     <a class="brand" href="#top" aria-label="TriaBudget, Startseite">Tria<em>Budget</em></a>
     <nav class="topnav" aria-label="Hauptnavigation">
       <a href="#disziplinen">Die Disziplinen</a>
+      <a href="#ratgeber">Ratgeber</a>
       <a href="#preise">Woher die Zahlen kommen</a>
       <a class="keep" href="#rechner">Zum Rechner</a>
     </nav>
@@ -473,6 +485,36 @@ details.deep p{font-size:15px;color:var(--muted);}
       <div class="wrap finish-in">
         <h2>Sparen, wo es geht. Investieren, wo es z&auml;hlt.</h2>
         <p>Am Ende z&auml;hlt, dass du losl&auml;ufst &mdash; nicht, dass alles neu ist.</p>
+      </div>
+    </section>
+
+    <section class="section" id="ratgeber" aria-labelledby="h-ratgeber">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker">Mehr zum Thema</p>
+          <h2 id="h-ratgeber">Ratgeber f&uuml;r den Einstieg.</h2>
+          <p>Drei kurze Artikel, die den Rechner erg&auml;nzen &mdash; f&uuml;r alles, was vor der Ausr&uuml;stungsliste passiert.</p>
+        </div>
+        <div class="rg-grid">
+          <a class="rg-card" href="was-kostet-triathlon.html">
+            <span class="tag-d">Kosten &amp; Budget</span>
+            <h3>Was kostet der erste Triathlon wirklich?</h3>
+            <p>Realistische Mindestkosten vom Sprint bis zum Ironman, aufgeschl&uuml;sselt nach Ausr&uuml;stung und Startgeld.</p>
+            <span class="rg-more">Artikel lesen &rarr;</span>
+          </a>
+          <a class="rg-card" href="triathlon-ausruestung-checkliste.html">
+            <span class="tag-d">Checkliste</span>
+            <h3>Ausr&uuml;stung f&uuml;r Einsteiger</h3>
+            <p>Pflicht, empfohlen und optional &mdash; sortiert nach Schwimmen, Rad und Laufen.</p>
+            <span class="rg-more">Artikel lesen &rarr;</span>
+          </a>
+          <a class="rg-card" href="neu-oder-gebraucht-kaufen.html">
+            <span class="tag-d">Kaufen</span>
+            <h3>Neu oder gebraucht kaufen?</h3>
+            <p>Wo sich Gebrauchtkauf lohnt, wo nicht, und worauf du dabei achten solltest.</p>
+            <span class="rg-more">Artikel lesen &rarr;</span>
+          </a>
+        </div>
       </div>
     </section>
 
