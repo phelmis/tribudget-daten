@@ -8,6 +8,7 @@
 @font-face{font-family:"Inter Tight";src:url(inter-tight-var.woff2) format("woff2");font-weight:100 900;font-style:normal;font-display:swap;}
 
 :root{
+  color-scheme:light;
   --paper:#F5F1E8;
   --paper2:#ECE6D8;
   --card:#FBF9F4;
@@ -29,7 +30,7 @@ img{display:block;max-width:100%;}
 a{color:inherit;}
 h1,h2,h3{font-family:var(--display);font-weight:800;margin:0;letter-spacing:0.005em;text-transform:uppercase;}
 .wrap{max-width:1240px;margin:0 auto;padding:0 var(--gutter);}
-.kicker{font-size:12.5px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin:0 0 14px;}
+.kicker{font-size:12.5px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-dark);margin:0 0 14px;}
 .skip{position:absolute;left:-9999px;top:8px;background:var(--ink);color:#fff;padding:8px 14px;z-index:99;}
 .skip:focus{left:8px;}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
@@ -88,7 +89,7 @@ h1,h2,h3{font-family:var(--display);font-weight:800;margin:0;letter-spacing:0.00
 .cta-box p{color:#D8D2C2;margin:0 0 18px;max-width:52ch;}
 
 /* Weiterlesen-Kacheln */
-.more{max-width:720px;margin:56px auto 0;padding:32px var(--gutter) 0;border-top:1px solid var(--line);}
+.more{max-width:720px;margin:56px auto 0;padding:32px var(--gutter) clamp(48px,7vw,72px);border-top:1px solid var(--line);}
 .more h2{font-size:22px;margin:0 0 18px;}
 .more-list{list-style:none;margin:0;padding:0;display:grid;gap:14px;}
 .more-list a{display:block;text-decoration:none;padding:16px 18px;border:1px solid var(--line2);background:var(--card);transition:border-color .12s;}

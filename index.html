@@ -7,6 +7,7 @@
 <meta name="description" content="Kostenloser Ausr&uuml;stungsplaner f&uuml;r Triathlon: Budget eingeben und eine klare Kaufreihenfolge mit realistischen Preisspannen f&uuml;r neu und gebraucht erhalten.">
 <link rel="canonical" href="https://www.triabudget.com/">
 <meta name="theme-color" content="#F5F1E8">
+<meta name="color-scheme" content="light">
 <meta property="og:type" content="website">
 <meta property="og:title" content="TriaBudget &ndash; Dein erster Triathlon. Was du wirklich brauchst.">
 <meta property="og:description" content="Budget eingeben, Kaufreihenfolge erhalten. Neu und gebraucht, ohne Schnickschnack.">
@@ -21,6 +22,7 @@
 @font-face{font-family:"Inter Tight";src:url(inter-tight-var.woff2) format("woff2");font-weight:100 900;font-style:normal;font-display:swap;}
 
 :root{
+  color-scheme:light;
   --paper:#F5F1E8;
   --paper2:#ECE6D8;
   --card:#FBF9F4;
@@ -43,7 +45,7 @@ a{color:inherit;}
 h1,h2,h3{font-family:var(--display);font-weight:800;margin:0;letter-spacing:0.005em;text-transform:uppercase;}
 .num{font-variant-numeric:tabular-nums;}
 .wrap{max-width:1240px;margin:0 auto;padding:0 var(--gutter);}
-.kicker{font-size:12.5px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin:0 0 14px;}
+.kicker{font-size:12.5px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-dark);margin:0 0 14px;}
 .skip{position:absolute;left:-9999px;top:8px;background:var(--ink);color:#fff;padding:8px 14px;z-index:99;}
 .skip:focus{left:8px;}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
@@ -129,6 +131,9 @@ legend .n{font-family:var(--sans);font-size:13px;font-weight:600;color:var(--acc
 .opt input:checked + .opt-body .opt-m{color:#D4CDBD;}
 .opt-badge{display:inline-block;margin-top:8px;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);}
 .opt input:checked + .opt-body .opt-badge{color:#FFB39D;}
+.opt input:disabled{cursor:not-allowed;}
+.opt input:disabled + .opt-body{opacity:.45;cursor:not-allowed;background:var(--paper2);}
+.opt input:disabled:checked + .opt-body{background:var(--line2);color:var(--ink);}
 
 .fields{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
 @media(max-width:700px){.fields{grid-template-columns:1fr;}}
@@ -280,9 +285,10 @@ details.deep p{font-size:15px;color:var(--muted);}
 .rg-card .rg-more{display:inline-block;margin-top:16px;font-size:14px;font-weight:600;color:var(--accent-dark);}
 
 /* Kicker: Vorrang vor Absatzstilen der Sektionen */
-.section-head p.kicker,.calc-intro p.kicker,.method-grid p.kicker,.res-head p.kicker,.hero-copy p.kicker{font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 14px;max-width:none;}
+.section-head p.kicker,.calc-intro p.kicker,.method-grid p.kicker,.res-head p.kicker,.hero-copy p.kicker{font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-dark);margin:0 0 14px;max-width:none;}
 
 </style>
+<script src="site-config.js" defer></script>
 </head>
 <body>
 
@@ -306,7 +312,7 @@ details.deep p{font-size:15px;color:var(--muted);}
       <div class="hero-copy">
         <p class="kicker">Ausr&uuml;stungsplaner f&uuml;r Triathlon</p>
         <h1 id="h1">Dein erster Triathlon. <em>Was du wirklich brauchst.</em></h1>
-        <p class="hero-sub">Nenn uns dein Budget. Du bekommst eine klare Kaufreihenfolge &mdash; neu und gebraucht, ohne Schnickschnack.</p>
+        <p class="hero-sub">Nenn uns dein Budget. Du bekommst eine klare Kaufreihenfolge: neu und gebraucht, ohne Schnickschnack.</p>
         <div class="cta-row">
           <a class="btn" href="#rechner">Budget berechnen <span aria-hidden="true">&rarr;</span></a>
         </div>
@@ -439,6 +445,15 @@ details.deep p{font-size:15px;color:var(--muted);}
                 </div>
                 <p class="note-s">Optional. Sinnvoll, wenn dein Rad schon steht und du gezielt aufr&uuml;sten willst. Ohne Haken bleibt das restliche Geld als Puffer stehen.</p>
               </div>
+              <div id="radTypWrap" style="margin-top:22px;">
+                <p class="note-s" style="margin:0 0 10px;color:var(--ink);font-weight:500;">Rad-Vorliebe (optional)</p>
+                <div class="opts c3">
+                  <label class="opt"><input type="radio" name="radTyp" value="auto" checked><span class="opt-body"><span class="opt-t">Automatisch</span><span class="opt-m">Rennrad, ab 70.3 bei hohem Budget auch ein TT-Rad.</span></span></label>
+                  <label class="opt"><input type="radio" name="radTyp" value="renn"><span class="opt-body"><span class="opt-t">Lieber Rennrad</span><span class="opt-m">Vielseitig, auch abseits von Wettk&auml;mpfen nutzbar.</span></span></label>
+                  <label class="opt"><input type="radio" name="radTyp" value="tt"><span class="opt-body"><span class="opt-t">Lieber TT-Rad</span><span class="opt-m">Aero-Vorteil, daf&uuml;r weniger vielseitig.</span></span></label>
+                </div>
+                <p class="note-s" id="radTypHint">Ab <span id="radTypThreshold"></span> Gesamtbudget w&auml;hlbar &ndash; darunter reicht es realistisch nicht f&uuml;r ein eigenes TT-Rad. <a href="triathlonrad-oder-rennrad.html">Unterschiede erkl&auml;rt</a>.</p>
+              </div>
             </fieldset>
 
             <p class="warn" id="warn" role="alert" hidden></p>
@@ -471,7 +486,7 @@ details.deep p{font-size:15px;color:var(--muted);}
         <p class="plan-note" id="sectionNote"></p>
         <ol class="plan" id="planList"></ol>
         <p class="owned-note" id="ownedNote" hidden></p>
-        <p class="plan-note" style="margin-top:20px;">Richtwerte, Stand September 2026. Keine Live-Preise, keine Kaufempfehlung f&uuml;r einzelne Produkte.</p>
+        <p class="plan-note" style="margin-top:20px;">Richtwerte, Stand <span class="stand-datum">September 2026</span>. Keine Live-Preise, keine Kaufempfehlung f&uuml;r einzelne Produkte.</p>
         <div class="actions">
           <button class="btn ghost" type="button" id="btnCopy">Link zum Ergebnis kopieren</button>
           <button class="btn ghost" type="button" id="btnPrint">Als PDF speichern</button>
@@ -484,7 +499,7 @@ details.deep p{font-size:15px;color:var(--muted);}
       <img src="ziel.jpg" width="1408" height="768" loading="lazy" alt="Ein Läufer hebt beim Zieleinlauf beide Arme, vor ihm jubelt eine Menschenmenge.">
       <div class="wrap finish-in">
         <h2>Sparen, wo es geht. Investieren, wo es z&auml;hlt.</h2>
-        <p>Am Ende z&auml;hlt, dass du losl&auml;ufst &mdash; nicht, dass alles neu ist.</p>
+        <p>Am Ende z&auml;hlt, dass du losl&auml;ufst, nicht, dass alles neu ist.</p>
       </div>
     </section>
 
@@ -493,25 +508,31 @@ details.deep p{font-size:15px;color:var(--muted);}
         <div class="section-head">
           <p class="kicker">Mehr zum Thema</p>
           <h2 id="h-ratgeber">Ratgeber f&uuml;r den Einstieg.</h2>
-          <p>Drei kurze Artikel, die den Rechner erg&auml;nzen &mdash; f&uuml;r alles, was vor der Ausr&uuml;stungsliste passiert.</p>
+          <p>Vier kurze Artikel, die den Rechner erg&auml;nzen und alles abdecken, was vor der Ausr&uuml;stungsliste passiert.</p>
         </div>
         <div class="rg-grid">
           <a class="rg-card" href="was-kostet-triathlon.html">
             <span class="tag-d">Kosten &amp; Budget</span>
-            <h3>Was kostet der erste Triathlon wirklich?</h3>
+            <h3>Triathlon Kosten: Wie teuer ist Triathlon wirklich?</h3>
             <p>Realistische Mindestkosten vom Sprint bis zum Ironman, aufgeschl&uuml;sselt nach Ausr&uuml;stung und Startgeld.</p>
             <span class="rg-more">Artikel lesen &rarr;</span>
           </a>
           <a class="rg-card" href="triathlon-ausruestung-checkliste.html">
             <span class="tag-d">Checkliste</span>
             <h3>Ausr&uuml;stung f&uuml;r Einsteiger</h3>
-            <p>Pflicht, empfohlen und optional &mdash; sortiert nach Schwimmen, Rad und Laufen.</p>
+            <p>Pflicht, empfohlen und optional, sortiert nach Schwimmen, Rad und Laufen.</p>
             <span class="rg-more">Artikel lesen &rarr;</span>
           </a>
           <a class="rg-card" href="neu-oder-gebraucht-kaufen.html">
             <span class="tag-d">Kaufen</span>
             <h3>Neu oder gebraucht kaufen?</h3>
             <p>Wo sich Gebrauchtkauf lohnt, wo nicht, und worauf du dabei achten solltest.</p>
+            <span class="rg-more">Artikel lesen &rarr;</span>
+          </a>
+          <a class="rg-card" href="triathlonrad-oder-rennrad.html">
+            <span class="tag-d">Ausr&uuml;stung</span>
+            <h3>Triathlonrad oder Rennrad?</h3>
+            <p>Aero-Vorteil, Preis und Vielseitigkeit im Vergleich, und ab wann sich ein eigenes TT-Rad lohnt.</p>
             <span class="rg-more">Artikel lesen &rarr;</span>
           </a>
         </div>
@@ -525,8 +546,8 @@ details.deep p{font-size:15px;color:var(--muted);}
           <div>
             <p class="kicker">Transparenz</p>
             <h2 id="h-preise">Woher die Zahlen kommen.</h2>
-            <p>Die Preisspannen sind im September 2026 gegen echte Angebote abgeglichen. Es sind Richtwerte aus einem gepr&uuml;ften Schnappschuss, keine Live-Preise. Die Seite fragt nicht in Echtzeit bei H&auml;ndlern nach.</p>
-            <p>Zuerst bekommt jeder Posten, den du brauchst, seinen Mindestpreis &mdash; gebraucht, wo es sinnvoll ist. Was danach &uuml;brig bleibt, geht in Verbesserungen.</p>
+            <p>Die Preisspannen sind im <span class="stand-datum">September 2026</span> gegen echte Angebote abgeglichen. Es sind Richtwerte aus einem gepr&uuml;ften Schnappschuss, keine Live-Preise. Die Seite fragt nicht in Echtzeit bei H&auml;ndlern nach.</p>
+            <p>Zuerst bekommt jeder Posten, den du brauchst, seinen Mindestpreis, gebraucht, wo es sinnvoll ist. Was danach &uuml;brig bleibt, geht in Verbesserungen.</p>
             <details class="deep">
               <summary>Die Berechnung im Detail</summary>
               <p>Bei Rad, Neoprenanzug und Uhr steht zus&auml;tzlich ein konkretes, recherchiertes Beispielprodukt mit Link zur Kategorieseite. Die Zuteilung l&auml;uft in zwei Stufen: Zuerst bekommt jede Pflicht- und Empfohlen-Kategorie ihren Mindestpreis (gebraucht, falls verf&uuml;gbar, sonst neu). Reicht das Budget daf&uuml;r nicht, erscheint eine Warnung mit der exakten Differenz. Das verbleibende Geld wird danach proportional nach Priorit&auml;t auf Verbesserungen verteilt, bis jede Kategorie ihren realistischen H&ouml;chstpreis erreicht. Der Rest flie&szlig;t in die Kategorie mit der offensten Preisspanne, meist das Rad. Im Staffel-Modus wird nur die Ausr&uuml;stung deiner eigenen Disziplin berechnet. Bei mehreren Rennen pro Saison werden nur Startgeld sowie Verpflegung und Verschlei&szlig;material hochskaliert, keine Grundausstattung.</p>
@@ -588,10 +609,10 @@ details.deep p{font-size:15px;color:var(--muted);}
   </header>
   <div class="legal-body">
     <h1>Datenschutzerkl&auml;rung</h1>
-    <p>Stand: September 2026</p>
+    <p>Stand: <span class="stand-datum">September 2026</span></p>
 
     <h2>Verantwortlicher</h2>
-    <p>Paul Elias Helmis, E-Mail: helmis.paul2005@gmail.com &mdash; siehe Impressum.</p>
+    <p>Paul Elias Helmis, E-Mail: helmis.paul2005@gmail.com (siehe Impressum).</p>
 
     <h2>Datenverarbeitung im Rechner</h2>
     <p>Deine Eingaben im Rechner (Distanz, Format, Disziplin, Budget usw.) werden ausschlie&szlig;lich lokal in deinem Browser verarbeitet und nicht an mich oder einen Server &uuml;bertragen. Es werden keine Cookies gesetzt und keine Analyse- oder Tracking-Tools eingesetzt. Schriftarten und Bilder werden von derselben Adresse geladen wie die Seite selbst, es findet kein Abruf bei Google oder anderen Drittanbietern statt.</p>
@@ -629,6 +650,9 @@ const LABELS = {
   schwimmzub:"Schwimmzubeh\u00f6r", renntag:"Renntag-Zubeh\u00f6r & Nutrition"
 };
 const DEFAULT_STARTGELD = { kurz: 90, mittel: 350, lang: 700 };
+// Ab diesem Gesamtbudget wird die manuelle Rad-Vorliebe (Rennrad/TT-Rad) waehlbar -
+// darunter reicht es realistisch nicht fuer ein eigenes, sinnvolles TT-Rad.
+const RAD_TYP_MIN_BUDGET = 5000;
 const PROFILES = {
   kurz: {
     noBike:   { rad:0.48, neo:0.14, schuhe:0.10, uhr:0.12, trisuit:0.06, schwimmzub:0.04, renntag:0.06 },
@@ -710,75 +734,198 @@ function parseCSV(text){
   });
 }
 
+const EXAMPLES_CACHE_KEY = 'triabudget_examples_v1';
+const EXAMPLES_CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24h, spart bei wiederholten Besuchen den Live-Abruf
+
 async function loadExamplesFromSheet(){
   if(!SHEET_CSV_URL) return; // kein Link hinterlegt -> Fallback-Werte unten bleiben aktiv
+
+  // Erst den lokalen Cache probieren, damit nicht bei jedem Seitenaufruf erneut von
+  // GitHub geladen werden muss. Schlaegt das fehl (privater Modus, voller Speicher o.ae.),
+  // laden wir einfach live weiter.
   try{
-    const res = await fetch(SHEET_CSV_URL);
+    const cached = localStorage.getItem(EXAMPLES_CACHE_KEY);
+    if(cached){
+      const parsed = JSON.parse(cached);
+      if(parsed && parsed.data && (Date.now() - parsed.ts) < EXAMPLES_CACHE_TTL_MS){
+        Object.assign(EXAMPLE_TIERS, parsed.data);
+        return;
+      }
+    }
+  }catch(err){ /* Cache ignorieren, live laden */ }
+
+  try{
+    // Timeout, damit ein haengender GitHub-Abruf nicht unbegrenzt offen bleibt -
+    // die statischen Fallback-Werte greifen in dem Fall einfach weiter.
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000);
+    let res;
+    try{
+      res = await fetch(SHEET_CSV_URL, { signal: controller.signal });
+    }finally{
+      clearTimeout(timeoutId);
+    }
     if(!res.ok) throw new Error('HTTP ' + res.status);
     const rows = parseCSV(await res.text());
 
-    // Pro Kategorie die erste Zeile mit Preis und Link w\u00e4hlen, sonst die erste mit Link.
+    // Pro Kategorie ALLE Zeilen mit Preis und Link sammeln (nicht nur die erste),
+    // damit wir je nach berechnetem Budget das passende Beispiel ausw\u00e4hlen k\u00f6nnen.
     const byCategory = {};
     rows.forEach(r => {
       const cat = r.category;
-      if(!cat || !r.produkt || !r.link) return;
-      const hasPrice = !!r.preis_eur;
-      if(!byCategory[cat] || (hasPrice && !byCategory[cat]._hasPrice)){
-        byCategory[cat] = { row: r, _hasPrice: hasPrice };
-      }
+      const preis = parseFloat(String(r.preis_eur || '').replace(/[.\s]/g,'').replace(',', '.'));
+      if(!cat || !r.produkt || !r.link || !isFinite(preis) || preis <= 0) return;
+      const tt = String(r.tt || '').trim() === '1';
+      (byCategory[cat] = byCategory[cat] || []).push(tt ? { price: preis, text: r.produkt, url: r.link, tt: true } : { price: preis, text: r.produkt, url: r.link });
     });
 
-    Object.entries(byCategory).forEach(([cat, { row }]) => {
-      const preisTxt = row.preis_eur ? ` \u2014 ca. ${row.preis_eur}\u00a0\u20ac` : '';
-      EXAMPLES[cat] = { text: `${row.produkt}${preisTxt}`, url: row.link };
+    Object.entries(byCategory).forEach(([cat, tiers]) => {
+      if(tiers.length){ EXAMPLE_TIERS[cat] = tiers.sort((a,b) => a.price - b.price); }
     });
+
+    try{ localStorage.setItem(EXAMPLES_CACHE_KEY, JSON.stringify({ ts: Date.now(), data: byCategory })); }catch(err){ /* Speicher evtl. voll/blockiert, kein Problem */ }
   }catch(err){
     console.warn('Beispielprodukte konnten nicht geladen werden, nutze Fallback:', err);
   }
 }
 
-function priceRangeText(cat, tier){
+// Zeigt die Preisspanne der Distanz-Stufe, erweitert sie aber um den tats\u00e4chlich
+// berechneten Betrag, falls der (z. B. durch den elastischen Puffer) au\u00dferhalb liegt.
+// So widerspricht die Spanne nie dem oben angezeigten Euro-Betrag.
+function priceRangeText(cat, tier, amt){
   const pd = PRICES[cat][tier];
-  let s = `Neu ${fmtEUR(pd.neuMin)}\u2013${fmtEUR(pd.neuMax)}`;
-  if(pd.gebrauchtMin != null){ s += ` \u00b7 gebraucht ab ${fmtEUR(pd.gebrauchtMin)}`; }
+  let neuMin = pd.neuMin, neuMax = pd.neuMax;
+  if(amt != null){
+    if(amt > neuMax) neuMax = amt;
+    if(amt < neuMin) neuMin = amt;
+  }
+  let s = `Neu ${fmtEUR(neuMin)}\u2013${fmtEUR(neuMax)}`;
+  if(pd.gebrauchtMin != null){
+    let gebrauchtMin = (amt != null && amt < pd.gebrauchtMin) ? amt : pd.gebrauchtMin;
+    s += ` \u00b7 gebraucht ab ${fmtEUR(gebrauchtMin)}`;
+  }
   return s;
 }
 
 // Konkrete, recherchierte Beispielprodukte (Stand September 2026) — keine Live-Preise,
 // Links f\u00fchren zu Kategorie-/Markenseiten, nicht zu einzelnen Produktseiten mit Preisgarantie.
-const EXAMPLES = {
-  rad: { text: "Liv Langma Advanced 3 \u2014 ca. 1.529\u00a0\u20ac (Beispielpreis)", url: "https://www.bike-components.de/de/rennrad/" },
-  radOpt: { text: "Laufr\u00e4der/Aero-Upgrades \u2014 gro\u00dfe Preisspanne", url: "https://www.bike-components.de/de/komponenten/laufraeder/" },
-  neo: { text: "Blueseventy Wetsuits (diverse Modelle)", url: "https://blueseventy.eu/de/collections/wetsuits" },
-  uhr: { text: "Garmin Forerunner 55 \u2014 g\u00fcnstiger Einstieg ab ca. 155\u00a0\u20ac", url: "https://www.bike24.de/pulsmesser-sportuhren.html/f.marke.garmin" },
-  trisuit: { text: "Zone3 Activate Trisuit \u2014 g\u00fcnstiger Einsteiger-Anzug", url: "https://www.bike24.de/p1710500.html" },
-  schwimmzub: { text: "Speedo Schwimmbrillen (diverse)", url: "https://de.speedo.com/schwimmbrillen/alle-schwimmbrillen.list" },
-  schuhe: { text: "Laufschuh-Sortiment (Nike/Asics/Saucony etc.)", url: "https://www.tradeinn.com/runnerinn/de/herrenschuhe-running-schuhe/10004/s" }
+const EXAMPLE_TIERS = {
+  rad: [
+    { price: 800,  text: "Van Rysel EDR AF Shimano Claris 2\u00d78 (Decathlon-Einstieg)", url: "https://www.decathlon.de/alle-sportarten-a-z/fahrrad-welt/van-rysel-rennrader" },
+    { price: 1529, text: "Liv Langma Advanced 3", url: "https://www.bike-components.de/de/rennrad/" },
+    { price: 2319, text: "Cube Agree C:62 One", url: "https://www.bike-components.de/de/rennrad/" },
+    { price: 2349, text: "Orbea Orca M30i \u2013 105 Di2", url: "https://www.bike-components.de/de/rennrad/" },
+    { price: 4349, text: "BMC Teammachine R01 Five", url: "https://www.bike-components.de/de/rennrad/" },
+    { price: 7199, text: "Cube Aerium C:68X SLT (dediziertes Triathlonrad)", url: "https://www.bike-components.de/de/rennrad/", tt: true }
+  ],
+  radOpt: [
+    { price: 250,  text: "Einsteiger-Carbonlaufradsatz", url: "https://www.bike-components.de/de/komponenten/laufraeder/" },
+    { price: 700,  text: "Mittelklasse-Laufradsatz Carbon", url: "https://www.bike-components.de/de/komponenten/laufraeder/" },
+    { price: 1800, text: "Premium-Aero-Laufradsatz", url: "https://www.bike-components.de/de/komponenten/laufraeder/" }
+  ],
+  neo: [
+    { price: 255, text: "Orca Athlex Float", url: "https://www.bike24.de/marken/orca" },
+    { price: 480, text: "Zone3 Aspire Wetsuit (Damen)", url: "https://triathlon.de/collections/schwimmen" },
+    { price: 600, text: "Blueseventy Fusion (Premium)", url: "https://blueseventy.eu/de/collections/wetsuits" }
+  ],
+  uhr: [
+    { price: 155, text: "Garmin Forerunner 55", url: "https://www.bike24.de/pulsmesser-sportuhren.html/f.marke.garmin" },
+    { price: 220, text: "Coros Pace 3", url: "https://coros.com/pace3" },
+    { price: 229, text: "Polar Pacer", url: "https://www.polar.com/de/all-watches" },
+    { price: 600, text: "Garmin Forerunner 265", url: "https://www.bike24.de/pulsmesser-sportuhren.html/f.marke.garmin" }
+  ],
+  trisuit: [
+    { price: 120, text: "Zone3 Activate Trisuit", url: "https://www.bike24.de/p1710500.html" },
+    { price: 230, text: "Castelli Free Tri Suit (Premium)", url: "https://www.castelli-cycling.com/US/en/Men/Triathlon/Triathlon-Suits/c/Man-Tri-Sui" }
+  ],
+  schwimmzub: [
+    { price: 16, text: "Sailfish Goggle Sweden Silver Mirror", url: "https://triathlon.de/collections/schwimmbrille" },
+    { price: 18, text: "Speedo Schwimmbrillen (diverse)", url: "https://de.speedo.com/schwimmbrillen/alle-schwimmbrillen.list" },
+    { price: 45, text: "Zone3 Venator-X Polarised", url: "https://triathlon.de/collections/schwimmbrille" }
+  ],
+  schuhe: [
+    { price: 90,  text: "Einsteiger-Laufschuh (z.\u00a0B. Decathlon Kiprun)", url: "https://www.tradeinn.com/runnerinn/de/herrenschuhe-running-schuhe/10004/s" },
+    { price: 140, text: "Asics Novablast 5", url: "https://www.tradeinn.com/runnerinn/de/herrenschuhe-running-schuhe/10004/s" },
+    { price: 230, text: "Saucony Endorphin Pro 4 (Wettkampf-Carbonschuh)", url: "https://www.tradeinn.com/runnerinn/de/herrenschuhe-running-schuhe/10004/s" }
+  ],
+  renntag: [
+    { price: 20, text: "Gels/Riegel f\u00fcr ein Rennen (Basisversorgung)", url: "" },
+    { price: 40, text: "Gels, Flaschenhalter und Rahmentasche", url: "" },
+    { price: 90, text: "Vollausstattung inkl. Wechselbeutel f\u00fcr mehrere Rennen", url: "" }
+  ]
 };
+
+// Dediziertes Triathlon-/Zeitfahrrad: per Default (radTyp "auto") erst ab der
+// Mitteldistanz (70.3) aufwaerts, weil der Aero-Vorteil auf der kurzen Sprint/Olympisch-
+// Radstrecke klein ist. Wer aber ausdruecklich "Lieber TT-Rad" waehlt (z. B. weil bei
+// genug Budget jeder kleine Vorteil zaehlen soll), bekommt es auch bei Sprint/Olympisch -
+// und wer "Lieber Rennrad" waehlt, bekommt nie eines, selbst bei 70.3/Ironman.
+function allowsTT(cat, distance, radTyp){
+  if(cat !== 'rad') return false;
+  if(radTyp === 'tt') return true;
+  if(radTyp === 'renn') return false;
+  return distance === 'mittel' || distance === 'lang'; // "auto" (Default)
+}
+
+// Wählt aus den gestaffelten Beispielprodukten einer Kategorie das, das am besten
+// zum tatsächlich berechneten Budget passt: das teuerste Modell, das noch ins Budget
+// passt, oder wenn keins passt das günstigste. So zeigt der Rechner bei 8.000 € Radbudget
+// nicht mehr dasselbe 1.500-€-Rad wie bei 800 €. Bei Rad zusaetzlich ueber allowsTT()
+// gesteuert: automatisch distanzabhaengig, oder per expliziter Nutzerwahl (radTyp).
+function pickExample(cat, amt, distance, radTyp){
+  let tiers = EXAMPLE_TIERS[cat];
+  if(!tiers || !tiers.length) return null;
+  if(!allowsTT(cat, distance, radTyp)){
+    const filtered = tiers.filter(t => !t.tt);
+    if(filtered.length) tiers = filtered;
+  }
+  let best = tiers[0];
+  for(const t of tiers){
+    if(t.price <= amt){ best = t; } else { break; }
+  }
+  return best;
+}
 
 function noteFor(cat, ziel){
   const notes = {
     rad:"Gr\u00f6\u00dfter Einzelposten. Gebraucht (Kleinanzeigen, Bike-Fl\u00f6hm\u00e4rkte, Slowtwitch-Classifieds) senkt die Einstiegsh\u00fcrde deutlich.",
-    radOpt: ziel==="zeit" ? "Laufr\u00e4der/Aero zuerst \u2014 bringt bei Zielzeit-Fokus real Sekunden. Guter Gebrauchtmarkt f\u00fcr Laufr\u00e4der." : "Nur sinnvoll, wenn Grundausstattung l\u00e4ngst steht. Gebraucht gut verf\u00fcgbar.",
-    neo:"Pflicht bei den meisten Freiwasser-Rennen unter ~24\u00a0\u00b0C. Gebraucht m\u00f6glich \u2014 auf Risse/Dichtigkeit an Knie & Achseln pr\u00fcfen.",
-    schuhe:"Nicht am Renntag zum ersten Mal tragen \u2014 mind. 40\u201360\u00a0km einlaufen. Gebraucht nicht empfehlenswert.",
+    radOpt: ziel==="zeit" ? "Laufr\u00e4der oder Aero-Upgrades zuerst, weil das bei Zielzeit-Fokus real Sekunden bringt. Guter Gebrauchtmarkt f\u00fcr Laufr\u00e4der." : "Nur sinnvoll, wenn Grundausstattung l\u00e4ngst steht. Gebraucht gut verf\u00fcgbar.",
+    neo:"Pflicht bei den meisten Freiwasser-Rennen unter ~24\u00a0\u00b0C. Gebraucht m\u00f6glich, dabei auf Risse/Dichtigkeit an Knie & Achseln pr\u00fcfen.",
+    schuhe:"Nicht am Renntag zum ersten Mal tragen, mindestens 40\u201360\u00a0km einlaufen. Gebraucht nicht empfehlenswert.",
     uhr:"Multisport-f\u00e4hig wichtiger als reine Laufuhr. Gebrauchtmarkt f\u00fcr Sportuhren ist gro\u00df und seri\u00f6s.",
-    trisuit:"Spart Wechselzeit in T1/T2 \u2014 f\u00fcr's erste Rennen nicht zwingend.",
-    schwimmzub:"Brille/Kappe \u2014 klein, aber ohne geht nichts. Nicht gebraucht kaufen.",
-    renntag:"Gels, Flaschenhalter, Rahmentasche, Wechselbeutel-Utensilien \u2014 skaliert mit der Anzahl Rennen."
+    trisuit:"Spart Wechselzeit in T1/T2, f\u00fcr's erste Rennen aber nicht zwingend.",
+    schwimmzub:"Brille und Kappe: klein, aber ohne geht nichts. Nicht gebraucht kaufen.",
+    renntag:"Gels, Flaschenhalter, Rahmentasche und Wechselbeutel-Utensilien, die mit der Anzahl Rennen skalieren."
   };
   return notes[cat] || "";
 }
 
 
-function allocate(weights, distance, elasticKey){
+// Realistische Obergrenze für die "elastische" Kategorie: das teuerste sinnvolle
+// Produkt aus unserer recherchierten Preisdatenbank statt eines fixen Distanz-Maximums.
+// Verhindert, dass die Kategorie bei viel Budget ins Unrealistische wächst. Beim Rad
+// zaehlt das TT-Rad als Obergrenze nur mit, wenn es fuer die Distanz auch infrage kommt
+// (siehe allowsTT) - sonst bleibt die Geld-Obergrenze beim teuersten Rennrad, und der
+// Rest fliesst in den Puffer statt implizit ein TT-Rad zu finanzieren, das gar nicht
+// vorgeschlagen wird.
+function realisticCeiling(cat, pd, distance, radTyp){
+  let tiers = EXAMPLE_TIERS[cat];
+  if(tiers && tiers.length && !allowsTT(cat, distance, radTyp)){
+    const filtered = tiers.filter(t => !t.tt);
+    if(filtered.length) tiers = filtered;
+  }
+  const topTier = tiers && tiers.length ? tiers[tiers.length - 1].price : 0;
+  return Math.max(pd.neuMax, topTier);
+}
+
+function allocate(weights, distance, elasticKey, radTyp){
   const floors = {}, ceilings = {};
   Object.keys(weights).forEach(k=>{
     const pd = PRICES[k][distance];
     const isElastic = (k === elasticKey);
     const prio = PRIORITY[k];
     floors[k] = (prio === 'optional') ? 0 : (pd.gebrauchtMin != null ? pd.gebrauchtMin : pd.neuMin);
-    ceilings[k] = isElastic ? Infinity : pd.neuMax;
+    ceilings[k] = isElastic ? realisticCeiling(k, pd, distance, radTyp) : pd.neuMax;
   });
   return { floors, ceilings };
 }
@@ -812,7 +959,9 @@ function waterFill(weights, floors, ceilings, netBudget, elasticKey){
       remaining = 0;
     }
   }
-  if(remaining > 0.5){ amt[elasticKey] = (amt[elasticKey]||0) + remaining; remaining = 0; }
+  // Rest, der nirgends mehr realistisch hinpasst (alle Kategorien an ihrer Obergrenze),
+  // landet im Puffer/Reserve statt eine einzelne Kategorie unrealistisch aufzublähen.
+  if(remaining > 0.5){ amt.reserve = (amt.reserve||0) + remaining; remaining = 0; }
   return { amt, shortfall: 0 };
 }
 
@@ -840,7 +989,8 @@ function readState(){
     ownWetsuit: $('ownWetsuit').checked,
     ownShoes: $('ownShoes').checked,
     ownWatch: $('ownWatch').checked,
-    wantOpt: $('ownBike').checked && $('wantOpt').checked
+    wantOpt: $('ownBike').checked && $('wantOpt').checked,
+    radTyp: $('ownBike').checked ? 'auto' : (val('radTyp') || 'auto')
   };
 }
 
@@ -881,7 +1031,7 @@ function buildWeights(s){
 }
 
 function buildFloors(s, weights, elasticKey){
-  const { floors, ceilings } = allocate(weights, s.distance, elasticKey);
+  const { floors, ceilings } = allocate(weights, s.distance, elasticKey, s.radTyp);
   if(weights.renntag){
     const factor = Math.min(1 + (s.raceCount - 1) * 0.4, 3);
     floors.renntag = Math.round(floors.renntag * factor);
@@ -943,7 +1093,7 @@ function calculate(doScroll){
   }
   $('sectionNote').textContent = note;
 
-  lastRender = { finalAmt, distance: s.distance, ziel: s.ziel, usedGebraucht, netBudget };
+  lastRender = { finalAmt, distance: s.distance, ziel: s.ziel, radTyp: s.radTyp, usedGebraucht, netBudget };
   drawPlan();
   drawOwnedNote(ownedMap, s.ownBike, s.format, s.discipline);
 
@@ -962,7 +1112,7 @@ function calculate(doScroll){
 
 function drawPlan(){
   if(!lastRender) return;
-  const { finalAmt, distance, ziel, usedGebraucht, netBudget } = lastRender;
+  const { finalAmt, distance, ziel, radTyp, usedGebraucht, netBudget } = lastRender;
   const prioRank = {pflicht:0, empfohlen:1, optional:2};
   const entries = Object.entries(finalAmt)
     .filter(([k,amt])=>amt>0)
@@ -981,19 +1131,17 @@ function drawPlan(){
     if(isReserve) note = 'Bleibt übrig, wenn alles Wichtige gedeckt ist. Nutze es als Puffer für Anreise, Reparaturen oder spätere Upgrades.';
     const idx = String(i+1).padStart(2,'0');
     const pct = netBudget > 0 ? Math.min(100, Math.max(2, amt / netBudget * 100)) : 0;
-    const ex = EXAMPLES[key];
+    const ex = pickExample(key, amt, distance, radTyp);
     let exHtml = '';
     if(ex && /^https?:\/\//.test(ex.url)){
-      const t = String(ex.text).replace(/\s*\((Beispielpreis|diverse Modelle|diverse)\)/g, '')
-        .replace(/ca\.\s*(\d{4,})/g, (m, n) => 'ca. ' + Number(n).toLocaleString('de-DE'));
-      exHtml = `<p class="pr-ex">z.&nbsp;B. ${esc(t)} &middot; <a href="${esc(ex.url)}" target="_blank" rel="noopener noreferrer">Angebote ansehen &#8599;</a></p>`;
+      exHtml = `<p class="pr-ex">z.&nbsp;B. ${esc(ex.text)} &middot; <a href="${esc(ex.url)}" target="_blank" rel="noopener noreferrer">Angebote ansehen &#8599;</a></p>`;
     }
     html += `<li class="plan-row">
       <div class="pr-idx">${idx}</div>
       <div class="pr-main">
         <div class="pr-title"><h3>${esc(LABELS[key])}</h3><span class="tag tag-${prio}">${isReserve ? 'Puffer' : TAG[prio]}</span>${isReserve ? '' : `<span class="pr-cat">${CAT[key]}</span>`}</div>
         <div class="bar b-${prio}" role="img" aria-label="${Math.round(pct)} Prozent des Ausrüstungsbudgets"><i style="width:${pct.toFixed(1)}%"></i></div>
-        ${isReserve ? '' : `<p class="pr-range">${priceRangeText(key, distance)}</p>`}
+        ${isReserve ? '' : `<p class="pr-range">${priceRangeText(key, distance, amt)}</p>`}
         <p class="pr-note">${esc(note)}</p>
         ${exHtml}
       </div>
@@ -1039,7 +1187,7 @@ function prefillStartgeld(){
 // ==== Teilen: Zustand im Link (nach dem #, wird nie an einen Server gesendet) ====
 function writeHash(s){
   const o = (s.ownBike?1:0) | (s.ownWetsuit?2:0) | (s.ownShoes?4:0) | (s.ownWatch?8:0) | (s.wantOpt?16:0);
-  const p = new URLSearchParams({ d:s.distance, f:s.format, s:s.discipline, z:s.ziel, b:s.budget, g:s.startgeldPerRace, r:s.raceCount, o:o });
+  const p = new URLSearchParams({ d:s.distance, f:s.format, s:s.discipline, z:s.ziel, b:s.budget, g:s.startgeldPerRace, r:s.raceCount, o:o, t:s.radTyp });
   try{ history.replaceState(null, '', location.pathname + location.search + '#' + p.toString()); }catch(e){}
 }
 function shareUrl(){
@@ -1056,6 +1204,8 @@ function applyHash(){
   const o = parseInt(p.get('o')) || 0;
   $('ownBike').checked = !!(o & 1); $('ownWetsuit').checked = !!(o & 2); $('ownShoes').checked = !!(o & 4); $('ownWatch').checked = !!(o & 8);
   syncOpt(); $('wantOpt').checked = !!(o & 1) && !!(o & 16);
+  if(p.get('t')) setRadio('radTyp', p.get('t'));
+  syncRadTyp();
   syncFormat();
   return true;
 }
@@ -1082,6 +1232,26 @@ function copyLink(){
 function syncOpt(){ const on = $('ownBike').checked; $('optWrap').hidden = !on; if(!on) $('wantOpt').checked = false; }
 function syncFormat(){ $('disciplineWrap').hidden = (val('format') !== 'staffel'); }
 
+// ==== Rad-Vorliebe (TT-Rad/Rennrad): nur relevant, wenn ueberhaupt ein neues Rad ansteht,
+// und erst ab einem Budget waehlbar, bei dem ein eigenes TT-Rad realistisch infrage kommt.
+function syncRadTyp(){
+  const wrap = $('radTypWrap');
+  if(!wrap) return;
+  const ownBike = $('ownBike').checked;
+  wrap.hidden = ownBike;
+  if(ownBike) return;
+  const budget = parseFloat($('budget').value) || 0;
+  const enabled = budget >= RAD_TYP_MIN_BUDGET;
+  document.querySelectorAll('input[name="radTyp"]').forEach(el => {
+    if(el.value === 'auto') return;
+    el.disabled = !enabled;
+  });
+  if(!enabled){
+    const autoEl = document.querySelector('input[name="radTyp"][value="auto"]');
+    if(autoEl) autoEl.checked = true;
+  }
+}
+
 // ==== Disziplin-Karten: Einstiegspreise aus den Preisdaten ====
 function fillFrom(){
   document.querySelectorAll('[data-from]').forEach(el => {
@@ -1107,7 +1277,8 @@ function showPage(name){
 // ==== Start ====
 document.querySelectorAll('input[name="distance"]').forEach(el => el.addEventListener('change', () => { prefillStartgeld(); updateMinHint(); }));
 document.querySelectorAll('input[name="format"]').forEach(el => el.addEventListener('change', () => { syncFormat(); updateMinHint(); }));
-$('ownBike').addEventListener('change', () => { syncOpt(); updateMinHint(); });
+$('ownBike').addEventListener('change', () => { syncOpt(); syncRadTyp(); updateMinHint(); });
+$('budget').addEventListener('input', syncRadTyp);
 $('calcForm').addEventListener('input', updateMinHint);
 $('calcForm').addEventListener('change', updateMinHint);
 $('calcForm').addEventListener('submit', e => { e.preventDefault(); calculate(true); });
@@ -1120,6 +1291,8 @@ fillFrom();
 prefillStartgeld();
 syncFormat();
 syncOpt();
+{ const el = $('radTypThreshold'); if(el) el.textContent = fmtEUR(RAD_TYP_MIN_BUDGET); }
+syncRadTyp();
 const fromLink = applyHash();
 updateMinHint();
 loadExamplesFromSheet().then(() => { if(lastRender) drawPlan(); });
