@@ -6,7 +6,7 @@
 <title>TriaBudget &ndash; Was du f&uuml;r deinen ersten Triathlon wirklich brauchst</title>
 <meta name="description" content="Kostenloser Ausr&uuml;stungsplaner f&uuml;r Triathlon: Budget eingeben und eine klare Kaufreihenfolge mit realistischen Preisspannen f&uuml;r neu und gebraucht erhalten.">
 <link rel="canonical" href="https://www.triabudget.com/">
-<meta name="theme-color" content="#F5F1E8">
+<meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light">
 <meta property="og:type" content="website">
 <meta property="og:title" content="TriaBudget &ndash; Dein erster Triathlon. Was du wirklich brauchst.">
@@ -14,27 +14,26 @@
 <meta property="og:image" content="https://www.triabudget.com/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2314120F'/%3E%3Ctext x='32' y='46' font-family='Arial Narrow,Arial,sans-serif' font-weight='bold' font-size='44' text-anchor='middle' fill='%23F5F1E8'%3ET%3C/text%3E%3Ccircle cx='50' cy='14' r='6' fill='%23C7391A'/%3E%3C/svg%3E">
-<link rel="preload" href="barlow-condensed-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="inter-tight-var.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-@font-face{font-family:"Barlow Condensed";src:url(barlow-condensed-800.woff2) format("woff2");font-weight:800;font-style:normal;font-display:swap;}
-@font-face{font-family:"Barlow Condensed";src:url(barlow-condensed-800-italic.woff2) format("woff2");font-weight:800;font-style:italic;font-display:swap;}
 @font-face{font-family:"Inter Tight";src:url(inter-tight-var.woff2) format("woff2");font-weight:100 900;font-style:normal;font-display:swap;}
 
 :root{
   color-scheme:light;
-  --paper:#F5F1E8;
-  --paper2:#ECE6D8;
-  --card:#FBF9F4;
+  --paper:#FFFFFF;
+  --band:#F4F2ED;
   --ink:#14120F;
+  --ink2:#3A362E;
   --muted:#645E52;
-  --line:#D8D0BE;
-  --line2:#B9B09A;
+  --line:#DDD8CC;
+  --line2:#8F897C;
   --accent:#C7391A;
   --accent-dark:#A62E14;
-  --display:"Barlow Condensed","Arial Narrow","Roboto Condensed",Impact,sans-serif;
   --sans:"Inter Tight",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --gutter:clamp(20px,4vw,48px);
+  --max:1200px;
+  --r:2px;
+  --sec:clamp(72px,9vw,128px);
 }
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;scroll-padding-top:16px;}
@@ -42,140 +41,178 @@ html{scroll-behavior:smooth;scroll-padding-top:16px;}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
 img{display:block;max-width:100%;}
 a{color:inherit;}
-h1,h2,h3{font-family:var(--display);font-weight:800;margin:0;letter-spacing:0.005em;text-transform:uppercase;}
+h1,h2,h3{margin:0;font-weight:500;letter-spacing:-0.028em;line-height:1.06;text-wrap:balance;}
+h1{font-size:clamp(38px,4.1vw,58px);}
+h2{font-size:clamp(30px,3.4vw,46px);}
+h3{font-size:clamp(20px,1.8vw,23px);font-weight:600;letter-spacing:-0.015em;line-height:1.2;}
+p{margin:0;}
 .num{font-variant-numeric:tabular-nums;}
-.wrap{max-width:1240px;margin:0 auto;padding:0 var(--gutter);}
-.kicker{font-size:12.5px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-dark);margin:0 0 14px;}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);}
+.kicker,.lbl{font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 16px;}
 .skip{position:absolute;left:-9999px;top:8px;background:var(--ink);color:#fff;padding:8px 14px;z-index:99;}
 .skip:focus{left:8px;}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 
-/* ---------- Topbar ---------- */
-.topbar{display:flex;align-items:center;justify-content:space-between;max-width:1240px;margin:0 auto;padding:18px var(--gutter);}
-.brand{font-family:var(--display);font-weight:800;font-size:30px;line-height:1;text-decoration:none;letter-spacing:0.01em;text-transform:uppercase;}
-.brand em{font-style:italic;color:var(--accent);}
-.topnav{display:flex;gap:26px;font-size:14.5px;font-weight:500;}
-.topnav a{text-decoration:none;color:var(--ink);padding:6px 0;border-bottom:1px solid transparent;}
-.topnav a:hover{border-color:var(--ink);}
-@media(max-width:640px){.topnav a:not(.keep){display:none;}}
+/* ---------- Kopfzeile ---------- */
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:24px;max-width:var(--max);margin:0 auto;padding:20px var(--gutter);}
+.brand{font-weight:600;font-size:21px;line-height:1;letter-spacing:-0.025em;text-decoration:none;}
+.brand em{font-style:normal;font-weight:400;}
+.topnav{display:flex;align-items:center;gap:32px;font-size:15px;}
+.topnav a{text-decoration:none;color:var(--ink2);padding:8px 0;transition:color .15s;}
+.topnav a:hover{color:var(--ink);}
+.topnav a.keep{background:var(--ink);color:#fff;padding:11px 18px;border-radius:var(--r);font-weight:500;transition:background-color .15s;}
+.topnav a.keep:hover{background:var(--accent);color:#fff;}
+@media(max-width:720px){.topnav a:not(.keep){display:none;}}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;border:1px solid var(--accent);font:600 16px/1 var(--sans);letter-spacing:-0.005em;padding:16px 24px;border-radius:var(--r);cursor:pointer;text-decoration:none;transition:background-color .15s,border-color .15s,color .15s;}
+.btn:hover{background:var(--accent-dark);border-color:var(--accent-dark);}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line2);}
+.btn.ghost:hover{background:transparent;border-color:var(--ink);}
+.textlink{font-weight:500;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line2);transition:color .15s,text-decoration-color .15s;}
+.textlink:hover{color:var(--accent-dark);text-decoration-color:var(--accent);}
 
 /* ---------- Hero ---------- */
-.hero{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);min-height:min(78vh,780px);}
-.hero-copy{display:flex;flex-direction:column;justify-content:center;padding:clamp(28px,5vw,64px) clamp(24px,5vw,72px) clamp(36px,6vw,80px) max(var(--gutter),calc((100vw - 1240px)/2 + var(--gutter)));}
-.hero h1{font-size:clamp(50px,7.2vw,112px);line-height:0.9;margin:0 0 24px;}
-.hero h1 em{font-style:italic;color:var(--accent);}
-.hero-sub{font-size:clamp(18px,1.6vw,21px);max-width:34ch;color:#3A362E;margin:0 0 30px;}
-.cta-row{display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
-.btn{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;border:0;font:800 20px/1 var(--display);letter-spacing:.04em;text-transform:uppercase;padding:17px 28px;border-radius:2px;cursor:pointer;text-decoration:none;transition:background .15s;}
-.btn:hover{background:var(--accent-dark);}
-.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink);}
-.btn.ghost:hover{background:var(--ink);color:var(--paper);}
-.btn.on-dark.ghost{color:#fff;border-color:rgba(255,255,255,.7);}
-.btn.on-dark.ghost:hover{background:#fff;color:var(--ink);}
-.micro{font-size:14px;color:var(--muted);margin:22px 0 0;}
-.hero-media{position:relative;overflow:hidden;background:#cfc6ae;}
-.hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:68% 50%;}
+.hero{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;align-items:end;max-width:var(--max);margin:0 auto;padding:clamp(24px,4vw,56px) var(--gutter) clamp(48px,6vw,88px);}
+.hero-copy{grid-column:1 / span 7;padding-bottom:4px;padding-right:24px;}
+.hero h1 span{display:block;text-wrap:wrap;}
+.hero h1 span + span{color:var(--muted);}
+.hero-sub{font-size:19px;line-height:1.5;color:var(--ink2);max-width:36ch;margin:28px 0 36px;}
+.cta-row{display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+.hero-media{grid-column:8 / -1;aspect-ratio:4/5;overflow:hidden;background:var(--band);}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:79% 50%;}
 @media(max-width:900px){
-  .hero{grid-template-columns:1fr;min-height:0;}
-  .hero-media{order:-1;aspect-ratio:4/3;}
-  .hero-copy{padding:32px var(--gutter) 44px;}
+  .hero{grid-template-columns:1fr;row-gap:40px;}
+  .hero-copy,.hero-media{grid-column:1 / -1;}
+  .hero-media{aspect-ratio:4/3;}
+  .hero-media img{object-position:72% 50%;}
+}
+
+/* ---------- Fakten ---------- */
+.facts{border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.facts-in{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));}
+.facts-in > div{padding:22px 24px 22px 0;}
+.facts-in > div + div{padding-left:24px;border-left:1px solid var(--line);}
+.facts .lbl{margin:0 0 6px;}
+.facts-in p:not(.lbl){font-size:16px;color:var(--ink);}
+@media(max-width:720px){
+  .facts-in{grid-template-columns:1fr;}
+  .facts-in > div,.facts-in > div + div{padding:16px 0;border-left:0;}
+  .facts-in > div + div{border-top:1px solid var(--line);}
+}
+
+/* ---------- Sektionen ---------- */
+.section{padding:var(--sec) 0;}
+.band{background:var(--band);}
+.split{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:48px;}
+.split-head{grid-column:1 / span 4;align-self:start;}
+.split-head h2{margin:0 0 20px;}
+.split-head p:not(.kicker){color:var(--ink2);max-width:34ch;}
+.split-body{grid-column:6 / -1;min-width:0;}
+@media(min-width:961px){.split-head.sticky{position:sticky;top:32px;}}
+@media(max-width:960px){
+  .split-head,.split-body{grid-column:1 / -1;}
+  .split-head p:not(.kicker){max-width:52ch;}
 }
 
 /* ---------- Disziplinen ---------- */
-.section{padding:clamp(64px,9vw,120px) 0;}
-.section-head{max-width:720px;margin:0 0 clamp(32px,5vw,56px);}
-.section-head h2{font-size:clamp(40px,5.6vw,80px);line-height:.92;}
-.section-head p{font-size:19px;color:#3A362E;margin:18px 0 0;max-width:52ch;}
-.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,32px);}
-@media(max-width:820px){.tri{grid-template-columns:1fr;gap:40px;}}
-.tri figure{margin:0;display:flex;flex-direction:column;}
-.tri figcaption{display:flex;flex-direction:column;flex:1;}
-.tri .ph{aspect-ratio:4/5;overflow:hidden;background:var(--paper2);}
-.tri .ph img{width:100%;height:100%;object-fit:cover;}
-@media(max-width:820px){.tri .ph{aspect-ratio:3/2;}}
-.tri .tag-d{font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:18px 0 6px;}
-.tri h3{font-size:30px;line-height:1;margin:0 0 10px;}
-.tri p{margin:0;color:#3A362E;font-size:16px;}
-.tri .from{margin-top:auto !important;padding-top:12px;border-top:1px solid var(--line);font-size:14.5px;color:var(--muted);line-height:1.45;}
-.tri figcaption > p:nth-of-type(2){margin-bottom:16px;}
-.tri .from b{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums;}
-.tri .from .lbl{display:block;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px;}
+.tri{border-top:1px solid var(--ink);}
+.tri-row{display:grid;grid-template-columns:220px minmax(0,1fr);gap:32px;padding:32px 0;border-bottom:1px solid var(--line);}
+.tri-row .ph{aspect-ratio:4/3;overflow:hidden;background:var(--band);align-self:start;}
+.tri-row .ph img{width:100%;height:100%;object-fit:cover;}
+.tag-d{display:block;font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 10px;}
+.tri-row h3{margin:0 0 10px;}
+.tri-row p:not(.tag-d):not(.from){color:var(--ink2);font-size:16px;max-width:52ch;}
+.from{margin-top:18px !important;padding-top:14px;border-top:1px solid var(--line);font-size:14.5px;line-height:1.5;color:var(--muted);max-width:52ch;}
+.from b{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums;}
+.from .lbl{display:block;margin:0 0 4px;font-size:12px;}
+@media(max-width:640px){
+  .tri-row{grid-template-columns:1fr;gap:20px;padding:28px 0;}
+  .tri-row .ph{aspect-ratio:16/9;}
+}
 
 /* ---------- Rechner ---------- */
-.calc-sec{background:var(--paper2);}
-.calc-grid{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:clamp(32px,6vw,88px);align-items:start;}
-@media(max-width:960px){.calc-grid{grid-template-columns:1fr;}}
-.calc-intro{position:sticky;top:24px;}
-@media(max-width:960px){.calc-intro{position:static;}}
-.calc-intro h2{font-size:clamp(40px,5vw,68px);line-height:.92;}
-.calc-intro p{color:#3A362E;margin:16px 0 0;font-size:17px;}
-.calc-intro .privacy{font-size:14px;color:var(--muted);margin-top:22px;padding-top:16px;border-top:1px solid var(--line2);}
+.calc-head{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:16px;margin-bottom:clamp(36px,5vw,56px);align-items:end;}
+.calc-head > div:first-child{grid-column:1 / span 7;}
+.calc-head h2{margin:0;}
+.calc-head p.calc-lead{grid-column:9 / -1;color:var(--ink2);}
+@media(max-width:960px){.calc-head > div:first-child,.calc-head p.calc-lead{grid-column:1 / -1;}}
 
-form.calc{background:var(--card);border:1px solid var(--line);padding:clamp(22px,3.4vw,44px);display:grid;gap:34px;}
-fieldset{border:0;margin:0;padding:0;min-width:0;}
-legend{display:flex;align-items:baseline;gap:12px;padding:0;margin:0 0 14px;font-family:var(--display);font-weight:800;font-size:27px;line-height:1.1;text-transform:uppercase;letter-spacing:.01em;}
-legend .n{font-family:var(--sans);font-size:13px;font-weight:600;color:var(--accent);letter-spacing:.06em;}
-.opts{display:grid;gap:10px;}
-.opts.c3{grid-template-columns:repeat(3,1fr);}
-.opts.c2{grid-template-columns:repeat(2,1fr);}
-@media(max-width:700px){.opts.c3{grid-template-columns:1fr;}}
-@media(max-width:420px){.opts.c2.stack-s{grid-template-columns:1fr;}}
+form.calc{border-top:1px solid var(--ink);}
+fieldset{border:0;margin:0;padding:32px 0;min-width:0;border-bottom:1px solid var(--line);}
+fieldset::after{content:"";display:table;clear:both;}
+legend{float:left;width:200px;padding:0 24px 0 0;margin:0;font-size:17px;font-weight:600;letter-spacing:-0.01em;line-height:1.3;}
+legend .n{display:block;font-size:12.5px;font-weight:500;color:var(--muted);letter-spacing:.04em;margin-bottom:6px;font-variant-numeric:tabular-nums;}
+.fs-body{margin-left:200px;}
+@media(max-width:820px){
+  fieldset{padding-top:0;padding-bottom:32px;}
+  legend{float:none;width:auto;padding:28px 0 0;margin:0 0 16px;}
+  .fs-body{margin-left:0;}
+}
+
+.opts{display:grid;gap:8px;}
+.opts.c3{grid-template-columns:repeat(3,minmax(0,1fr));}
+.opts.c2{grid-template-columns:repeat(2,minmax(0,1fr));}
+@media(max-width:900px){.opts.c3{grid-template-columns:1fr;}}
+@media(max-width:480px){.opts.c2{grid-template-columns:1fr;}}
 .opt{position:relative;display:block;cursor:pointer;}
 .opt input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer;}
-.opt-body{display:block;height:100%;padding:14px 16px;border:1px solid var(--line2);background:#fff;border-radius:2px;transition:border-color .12s,background .12s,color .12s;}
+.opt-body{position:relative;display:block;height:100%;padding:16px 46px 16px 18px;border:1px solid var(--line2);background:#fff;border-radius:var(--r);transition:border-color .12s,box-shadow .12s;}
+.opt-body::after{content:"";position:absolute;right:16px;top:18px;width:16px;height:16px;border:1.5px solid var(--line2);border-radius:50%;background:#fff;transition:border-color .12s,background .12s;}
 .opt:hover .opt-body{border-color:var(--ink);}
-.opt input:checked + .opt-body{background:var(--ink);border-color:var(--ink);color:#fff;}
+.opt input:checked + .opt-body{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink);}
+.opt input:checked + .opt-body::after{border-color:var(--ink);background:radial-gradient(circle,var(--ink) 0 4px,#fff 4.5px);}
 .opt input:focus-visible + .opt-body{outline:2px solid var(--accent);outline-offset:3px;}
-.opt-t{display:block;font-weight:600;font-size:16px;line-height:1.25;}
-.opt-m{display:block;font-size:13.5px;color:var(--muted);margin-top:4px;line-height:1.35;}
-.opt input:checked + .opt-body .opt-m{color:#D4CDBD;}
-.opt-badge{display:inline-block;margin-top:8px;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);}
-.opt input:checked + .opt-body .opt-badge{color:#FFB39D;}
+.opt-t{display:block;font-weight:600;font-size:16px;line-height:1.3;letter-spacing:-0.005em;}
+.opt-m{display:block;font-size:14px;color:var(--muted);margin-top:4px;line-height:1.4;}
+.opt-badge{display:block;margin-top:10px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-dark);}
 .opt input:disabled{cursor:not-allowed;}
-.opt input:disabled + .opt-body{opacity:.45;cursor:not-allowed;background:var(--paper2);}
-.opt input:disabled:checked + .opt-body{background:var(--line2);color:var(--ink);}
+.opt input:disabled + .opt-body{opacity:.5;cursor:not-allowed;background:var(--band);}
+.opt input:disabled:checked + .opt-body{box-shadow:none;}
 
-.fields{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-@media(max-width:700px){.fields{grid-template-columns:1fr;}}
-.field label{display:block;font-size:14px;font-weight:500;margin:0 0 6px;}
-.input{display:flex;align-items:center;background:#fff;border:1px solid var(--line2);border-radius:2px;}
-.input:focus-within{border-color:var(--ink);box-shadow:0 0 0 3px rgba(20,18,15,.08);}
-.input input{border:0;background:transparent;font:500 20px/1 var(--sans);font-variant-numeric:tabular-nums;padding:14px 12px 14px 14px;width:100%;min-width:0;color:var(--ink);}
+.fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;}
+@media(max-width:820px){.fields{grid-template-columns:1fr;}}
+.field label{display:block;font-size:14px;font-weight:500;margin:0 0 8px;}
+.input{display:flex;align-items:center;background:#fff;border:1px solid var(--line2);border-radius:var(--r);transition:border-color .12s,box-shadow .12s;}
+.input:hover{border-color:var(--ink);}
+.input:focus-within{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink);}
+.input input{border:0;background:transparent;font:500 20px/1 var(--sans);font-variant-numeric:tabular-nums;padding:15px 12px 15px 16px;width:100%;min-width:0;color:var(--ink);}
 .input input:focus{outline:none;}
-.input input::placeholder{color:#A8A08D;}
-.input .unit{padding:0 14px 0 0;color:var(--muted);font-size:18px;}
-.field .hint{font-size:13.5px;color:var(--muted);margin:6px 0 0;line-height:1.4;}
-.minhint{grid-column:1/-1;font-size:15px;background:#F1ECDF;border-left:3px solid var(--accent);padding:12px 14px;margin:0;color:#3A362E;}
-.minhint b{font-variant-numeric:tabular-nums;}
+.input input::placeholder{color:#8A8478;}
+.input .unit{padding:0 16px 0 0;color:var(--muted);font-size:18px;}
+.field .hint{font-size:13.5px;color:var(--muted);margin:8px 0 0;line-height:1.4;}
+.minhint{grid-column:1/-1;font-size:15px;margin:0;color:var(--ink2);}
+.minhint b{font-variant-numeric:tabular-nums;color:var(--ink);font-weight:600;}
 input[type=number]{-moz-appearance:textfield;appearance:textfield;}
 input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}
 
-.chips{display:flex;flex-wrap:wrap;gap:10px;}
+.chips{display:flex;flex-wrap:wrap;gap:8px;}
 .chip{position:relative;cursor:pointer;}
 .chip input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer;}
-.chip span{display:inline-flex;align-items:center;gap:9px;padding:11px 16px;border:1px solid var(--line2);background:#fff;border-radius:999px;font-size:15.5px;font-weight:500;transition:all .12s;}
-.chip span::before{content:"";width:16px;height:16px;border:1.5px solid var(--line2);border-radius:50%;flex:none;transition:all .12s;}
+.chip span{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border:1px solid var(--line2);background:#fff;border-radius:var(--r);font-size:15.5px;font-weight:500;transition:border-color .12s,box-shadow .12s;}
+.chip span::before{content:"";width:16px;height:16px;border:1.5px solid var(--line2);border-radius:2px;flex:none;transition:border-color .12s,background-color .12s;}
 .chip:hover span{border-color:var(--ink);}
-.chip input:checked + span{background:var(--ink);color:#fff;border-color:var(--ink);}
-.chip input:checked + span::before{border-color:#fff;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.4l2.6 2.6L12 5.4' fill='none' stroke='%2314120F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat;}
+.chip input:checked + span{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink);}
+.chip input:checked + span::before{border-color:var(--ink);background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.8 8.4l2.7 2.7 5.7-6' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat;}
 .chip input:focus-visible + span{outline:2px solid var(--accent);outline-offset:3px;}
-.note-s{font-size:14px;color:var(--muted);margin:12px 0 0;}
+.note-s{font-size:14px;color:var(--muted);margin:12px 0 0;max-width:62ch;}
+.note-s a{text-underline-offset:3px;}
+.sub-lbl{font-size:14px;font-weight:500;margin:0 0 10px;color:var(--ink);}
 
-.warn{margin:0;font-size:15px;color:var(--accent-dark);border-left:3px solid var(--accent);padding:10px 14px;background:#F8E9E3;}
-.submit-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
-.submit-row .btn{font-size:22px;padding:19px 34px;}
+.warn{margin:24px 0 0;font-size:15px;color:var(--accent-dark);padding:14px 16px;background:#fff;border:1px solid var(--accent);border-radius:var(--r);}
+.submit-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding-top:32px;}
+.submit-row .btn{padding:18px 30px;font-size:17px;}
 
 /* ---------- Ergebnis ---------- */
-.results{display:none;padding:clamp(56px,8vw,104px) 0 clamp(48px,6vw,80px);}
+.results{display:none;padding:var(--sec) 0 clamp(56px,7vw,96px);}
 .results.on{display:block;}
-.res-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:34px;}
-.res-head h2{font-size:clamp(44px,6vw,88px);line-height:.92;}
-.res-sub{color:var(--muted);font-size:15px;margin:10px 0 0;}
-.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:2px solid var(--ink);border-bottom:1px solid var(--line);margin-bottom:12px;}
-.stat{padding:18px 20px 18px 0;border-right:1px solid var(--line);}
+.res-head{margin-bottom:36px;}
+.res-head h2{font-size:clamp(34px,4.2vw,56px);}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--ink);border-bottom:1px solid var(--line);}
+.stat{padding:22px 20px 22px 0;border-right:1px solid var(--line);}
 .stat + .stat{padding-left:20px;}
 .stat:last-child{border-right:0;}
-.stat .v{font-family:var(--display);font-weight:800;font-size:clamp(34px,4vw,56px);line-height:1;font-variant-numeric:tabular-nums;}
+.stat .v{font-weight:500;font-size:clamp(28px,3.2vw,42px);line-height:1.05;letter-spacing:-0.03em;font-variant-numeric:tabular-nums;}
 .stat .l{font-size:13.5px;color:var(--muted);margin-top:8px;}
 .stat.hl .v{color:var(--accent);}
 @media(max-width:760px){
@@ -184,76 +221,101 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
   .stat:nth-child(2n){padding-left:16px !important;border-left:1px solid var(--line);}
   .stat:nth-last-child(-n+2){border-bottom:0;}
 }
-.plan-note{font-size:15px;color:var(--muted);margin:14px 0 30px;max-width:70ch;}
+.plan-note{font-size:15px;color:var(--muted);margin:16px 0 32px;max-width:70ch;}
 .plan{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink);}
-.plan-row{display:grid;grid-template-columns:44px minmax(0,1fr) 150px;gap:8px 18px;padding:26px 0;border-bottom:1px solid var(--line);}
-.pr-idx{font-family:var(--display);font-weight:800;font-size:26px;color:var(--muted);line-height:1.1;font-variant-numeric:tabular-nums;}
-.pr-title{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;}
-.pr-title h3{font-size:34px;line-height:1;}
-.tag{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:2px;line-height:1.3;}
-.tag-pflicht{background:var(--accent);color:#fff;}
-.tag-empfohlen{background:var(--ink);color:#fff;}
-.tag-optional{background:transparent;color:var(--muted);border:1px solid var(--line2);}
+.plan-row{display:grid;grid-template-columns:48px minmax(0,1fr) 190px;gap:8px 24px;padding:28px 0;border-bottom:1px solid var(--line);}
+.pr-idx{font-size:14px;font-weight:500;color:var(--muted);padding-top:6px;font-variant-numeric:tabular-nums;}
+.pr-title{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;}
+.pr-title h3{font-size:clamp(20px,2vw,24px);}
+.tag{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;line-height:1.3;color:var(--muted);}
+.tag::before{content:"";width:7px;height:7px;background:currentColor;flex:none;}
+.tag-pflicht{color:var(--accent-dark);}
+.tag-empfohlen{color:var(--ink);}
+.tag-optional{color:var(--muted);}
 .pr-cat{font-size:13.5px;color:var(--muted);}
-.pr-amt{font-family:var(--display);font-weight:800;font-size:clamp(34px,4vw,52px);line-height:1;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
-.bar{height:6px;background:var(--paper2);margin:12px 0 12px;border-radius:1px;overflow:hidden;}
+.pr-amt{font-weight:500;font-size:clamp(28px,3vw,40px);line-height:1.05;letter-spacing:-0.03em;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
+.bar{height:4px;background:var(--line);margin:14px 0 14px;overflow:hidden;}
 .bar i{display:block;height:100%;background:var(--ink);}
 .bar.b-pflicht i{background:var(--accent);}
 .bar.b-optional i{background:var(--line2);}
 .pr-main p{margin:0 0 6px;}
 .pr-range{font-size:15px;font-variant-numeric:tabular-nums;color:var(--ink);font-weight:500;}
-.pr-note{font-size:15.5px;color:#3A362E;max-width:64ch;}
+.pr-note{font-size:15.5px;color:var(--ink2);max-width:64ch;}
 .pr-ex{font-size:14.5px;color:var(--muted);}
-.pr-ex a{color:var(--ink);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line2);}
+.pr-ex a{color:var(--ink);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line2);transition:color .15s,text-decoration-color .15s;}
 .pr-ex a:hover{text-decoration-color:var(--accent);color:var(--accent-dark);}
 @media(max-width:600px){
-  .plan-row{grid-template-columns:32px minmax(0,1fr);}
-  .pr-amt{grid-column:2;text-align:left;order:3;font-size:36px;}
-  .pr-idx{font-size:20px;}
-  .pr-title h3{font-size:30px;}
+  .plan-row{grid-template-columns:28px minmax(0,1fr);gap:8px 14px;}
+  .pr-amt{grid-column:2;text-align:left;order:3;font-size:30px;}
 }
 .owned-note{font-size:15.5px;padding:18px 0;border-bottom:1px solid var(--line);margin:0;}
-.actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:36px;}
-.actions .btn{padding:14px 22px;font-size:18px;}
+.actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:36px;}
+.actions .btn{padding:14px 20px;font-size:15px;}
 .status{font-size:14.5px;color:var(--muted);}
 
-/* ---------- Finish ---------- */
-.finish{position:relative;color:#fff;overflow:hidden;min-height:clamp(360px,46vw,560px);display:flex;align-items:flex-end;background:#2b2118;}
-.finish img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;}
-.finish::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,18,15,0) 30%,rgba(20,18,15,.78) 100%);}
-.finish-in{position:relative;z-index:1;padding-top:60px;padding-bottom:clamp(32px,5vw,64px);width:100%;}
-.finish h2{font-size:clamp(40px,5.8vw,88px);line-height:.92;max-width:20ch;}
-.finish p{font-size:19px;max-width:44ch;margin:16px 0 0;color:#EFE9DB;}
+/* ---------- Abschluss ---------- */
+.finish{padding:var(--sec) 0 0;}
+.finish-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:32px;align-items:end;}
+.finish-img{grid-column:1 / span 8;margin:0;aspect-ratio:16/10;overflow:hidden;background:var(--band);}
+.finish-img img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;}
+.finish-copy{grid-column:10 / -1;padding-bottom:4px;}
+.finish-copy h2{font-size:clamp(28px,3vw,40px);margin-bottom:16px;}
+.finish-copy p{color:var(--ink2);}
+@media(max-width:960px){
+  .finish-img,.finish-copy{grid-column:1 / -1;}
+  .finish-img{aspect-ratio:16/9;}
+}
 
-/* ---------- Preise / Methodik ---------- */
-.method-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(28px,6vw,88px);align-items:center;}
-@media(max-width:860px){.method-grid{grid-template-columns:1fr;}}
-.method-grid .ph{aspect-ratio:4/3;overflow:hidden;background:var(--paper2);}
-.method-grid .ph img{width:100%;height:100%;object-fit:cover;}
-.method-grid h2{font-size:clamp(40px,5.2vw,72px);line-height:.92;margin-bottom:18px;}
-.method-grid p{margin:0 0 14px;color:#3A362E;max-width:56ch;}
-details.deep{margin-top:22px;border-top:1px solid var(--line);}
-details.deep summary{cursor:pointer;padding:14px 0;font-weight:600;font-size:16px;list-style:none;display:flex;justify-content:space-between;align-items:center;}
+/* ---------- Ratgeber ---------- */
+.rg-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink);}
+.rg-row{display:grid;grid-template-columns:36px minmax(0,1fr) 24px;gap:16px;padding:26px 0;border-bottom:1px solid var(--line);text-decoration:none;}
+.rg-n{font-size:14px;font-weight:500;color:var(--muted);padding-top:5px;font-variant-numeric:tabular-nums;}
+.rg-row h3{margin:0 0 8px;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:5px;text-decoration-thickness:1px;transition:text-decoration-color .15s;}
+.rg-row p:not(.tag-d){color:var(--ink2);font-size:15.5px;max-width:60ch;}
+.rg-row .tag-d{margin-bottom:8px;}
+.rg-arrow{align-self:center;color:var(--muted);transition:transform .15s,color .15s;}
+.rg-row:hover h3{text-decoration-color:var(--ink);}
+.rg-row:hover .rg-arrow{color:var(--accent);transform:translateX(4px);}
+@media(prefers-reduced-motion:reduce){.rg-row:hover .rg-arrow{transform:none;}}
+@media(max-width:560px){.rg-row{grid-template-columns:28px minmax(0,1fr);}.rg-arrow{display:none;}}
+
+/* ---------- Transparenz ---------- */
+.method{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:40px;align-items:start;}
+.method .ph{grid-column:1 / span 5;aspect-ratio:4/3;overflow:hidden;background:var(--paper);}
+.method .ph img{width:100%;height:100%;object-fit:cover;}
+.method-copy{grid-column:7 / -1;}
+.method-copy h2{margin-bottom:24px;}
+.method-copy p:not(.kicker){margin:0 0 16px;color:var(--ink2);max-width:56ch;}
+@media(max-width:900px){.method .ph,.method-copy{grid-column:1 / -1;}}
+details.deep{margin-top:28px;border-top:1px solid var(--ink);border-bottom:1px solid var(--line);}
+details.deep summary{cursor:pointer;padding:16px 0;font-weight:600;font-size:16px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
 details.deep summary::-webkit-details-marker{display:none;}
-details.deep summary::after{content:"+";font-size:22px;font-weight:400;color:var(--accent);}
+details.deep summary::after{content:"+";font-size:22px;font-weight:400;color:var(--ink);line-height:1;}
 details.deep[open] summary::after{content:"\2013";}
-details.deep p{font-size:15px;color:var(--muted);}
+details.deep summary:hover{color:var(--accent-dark);}
+details.deep p{font-size:15px;color:var(--muted);padding-bottom:18px;margin:0;}
 
-/* ---------- Footer ---------- */
-.site-footer{background:var(--ink);color:#CFC8B8;}
-.foot-in{max-width:1240px;margin:0 auto;padding:44px var(--gutter);display:flex;gap:32px;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;}
-.foot-in .brand{color:#fff;font-size:34px;}
-.foot-in p{margin:12px 0 0;font-size:14px;max-width:56ch;color:#A9A290;}
-.foot-links{display:flex;gap:22px;font-size:14.5px;}
-.foot-links a{color:#E8E2D3;text-decoration:none;border-bottom:1px solid #5A544A;padding-bottom:2px;}
-.foot-links a:hover{color:#fff;border-color:#fff;}
+/* ---------- Fußzeile ---------- */
+.site-footer{background:var(--ink);color:#C9C3B6;}
+.foot-in{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:40px;max-width:var(--max);margin:0 auto;padding:56px var(--gutter) 48px;}
+.foot-brand{grid-column:1 / span 5;}
+.foot-brand .brand{color:#fff;font-size:24px;}
+.foot-brand p{margin:16px 0 0;font-size:14px;line-height:1.55;max-width:44ch;color:#A9A290;}
+.foot-col{grid-column:span 3;display:flex;flex-direction:column;align-items:flex-start;gap:10px;font-size:15px;}
+.foot-col:nth-of-type(1){grid-column:7 / span 3;}
+.foot-col .lbl{color:#A9A290;margin:0 0 6px;}
+.foot-col a{color:#E8E2D3;text-decoration:none;padding:2px 0;border-bottom:1px solid transparent;transition:border-color .15s,color .15s;}
+.foot-col a:hover{color:#fff;border-color:#fff;}
+@media(max-width:820px){
+  .foot-brand,.foot-col,.foot-col:nth-of-type(1){grid-column:1 / -1;}
+}
 
 /* ---------- Rechtstexte ---------- */
 .legal-page{display:none;background:var(--paper);min-height:100vh;}
 .legal-body{max-width:720px;margin:0 auto;padding:clamp(28px,5vw,64px) var(--gutter) 96px;}
-.legal-body h1{font-size:clamp(50px,7vw,88px);line-height:.92;margin:0 0 14px;}
-.legal-body h2{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:38px 0 10px;}
-.legal-body p{font-size:16.5px;color:#2E2B25;margin:0 0 12px;}
+.legal-body h1{font-size:clamp(34px,4.4vw,52px);margin:0 0 16px;}
+.legal-body h2{font-size:15px;font-weight:600;letter-spacing:-0.005em;color:var(--ink);margin:40px 0 10px;line-height:1.3;}
+.legal-body p{font-size:16.5px;color:var(--ink2);margin:0 0 12px;}
 .legal-body a{text-underline-offset:3px;}
 .legal-back{display:inline-block;margin-top:44px;font-weight:600;text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:2px;cursor:pointer;}
 
@@ -262,30 +324,16 @@ details.deep p{font-size:15px;color:var(--muted);}
 @media print{
   @page{margin:16mm;}
   body{background:#fff;font-size:12.5pt;}
-  .topbar,.hero,#disziplinen,.calc-sec,.finish,#preise,.site-footer,.actions,.skip,.legal-page{display:none !important;}
+  .topbar,.hero,.facts,#disziplinen,.calc-sec,.finish,#ratgeber,#preise,.site-footer,.actions,.skip,.legal-page{display:none !important;}
   .print-only{display:block;}
   .results{display:block !important;padding:0;}
   .plan-row{break-inside:avoid;padding:14px 0;}
   .bar{border:1px solid #bbb;}
-  .bar i{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-  .tag{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .bar i,.tag::before{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
   .print-head{border-bottom:2px solid #000;padding-bottom:10px;margin-bottom:22px;}
-  .print-head .brand{font-size:28pt;}
+  .print-head .brand{font-size:26pt;}
   .print-head p{margin:6px 0 0;font-size:11pt;color:#444;}
 }
-
-/* ---------- Ratgeber ---------- */
-.rg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,32px);}
-@media(max-width:820px){.rg-grid{grid-template-columns:1fr;}}
-.rg-card{display:block;text-decoration:none;height:100%;background:var(--card);border:1px solid var(--line2);padding:clamp(22px,3vw,30px);transition:border-color .12s;}
-.rg-card:hover{border-color:var(--ink);}
-.rg-card .tag-d{display:block;font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;}
-.rg-card h3{font-size:26px;line-height:1.05;margin:0 0 10px;}
-.rg-card p{margin:0;color:#3A362E;font-size:15.5px;}
-.rg-card .rg-more{display:inline-block;margin-top:16px;font-size:14px;font-weight:600;color:var(--accent-dark);}
-
-/* Kicker: Vorrang vor Absatzstilen der Sektionen */
-.section-head p.kicker,.calc-intro p.kicker,.method-grid p.kicker,.res-head p.kicker,.hero-copy p.kicker{font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-dark);margin:0 0 14px;max-width:none;}
 
 </style>
 <script src="site-config.js" defer></script>
@@ -311,104 +359,121 @@ details.deep p{font-size:15px;color:var(--muted);}
     <section class="hero" aria-labelledby="h1">
       <div class="hero-copy">
         <p class="kicker">Ausr&uuml;stungsplaner f&uuml;r Triathlon</p>
-        <h1 id="h1">Dein erster Triathlon. <em>Was du wirklich brauchst.</em></h1>
+        <h1 id="h1"><span>Dein erster Triathlon.</span> <span>Was du wirklich brauchst.</span></h1>
         <p class="hero-sub">Nenn uns dein Budget. Du bekommst eine klare Kaufreihenfolge: neu und gebraucht, ohne Schnickschnack.</p>
         <div class="cta-row">
           <a class="btn" href="#rechner">Budget berechnen <span aria-hidden="true">&rarr;</span></a>
+          <a class="textlink" href="#preise">Woher die Zahlen kommen</a>
         </div>
-        <p class="micro">Kostenlos, ohne Anmeldung. Deine Eingaben bleiben im Browser.</p>
       </div>
       <div class="hero-media">
         <img src="hero.jpg" width="1376" height="768" fetchpriority="high" alt="Ein Triathlet im Neoprenanzug geht bei Sonnenaufgang an einem nebligen Bergsee ins Wasser.">
       </div>
     </section>
 
+    <section class="facts" aria-label="Auf einen Blick">
+      <div class="wrap facts-in">
+        <div><p class="lbl">Kosten</p><p>Kostenlos, ohne Anmeldung</p></div>
+        <div><p class="lbl">Datenschutz</p><p>Deine Eingaben bleiben im Browser</p></div>
+        <div><p class="lbl">Preisstand</p><p>Richtwerte, <span class="stand-datum">September 2026</span></p></div>
+      </div>
+    </section>
+
     <section class="section" id="disziplinen" aria-labelledby="h-disz">
-      <div class="wrap">
-        <div class="section-head">
+      <div class="wrap split">
+        <div class="split-head sticky">
           <p class="kicker">Bevor du rechnest</p>
           <h2 id="h-disz">Drei Disziplinen. Ein Budget.</h2>
           <p>Das meiste Geld landet in wenigen Posten. Hier siehst du, wof&uuml;r.</p>
         </div>
-        <div class="tri">
-          <figure>
-            <div class="ph"><img src="schwimmen.jpg" width="1200" height="655" loading="lazy" style="object-position:57% 50%" alt="Freiwasserschwimmer mit oranger Badekappe beim Kraulen in einem ruhigen See."></div>
-            <figcaption>
-              <p class="tag-d">Schwimmen</p>
-              <h3>Neoprenanzug, Brille, Kappe</h3>
-              <p>Bei kaltem Wasser meist Pflicht. Gebraucht gut zu bekommen, Brille und Kappe kaufst du neu.</p>
-              <p class="from" data-from="neo">&nbsp;</p>
-            </figcaption>
-          </figure>
-          <figure>
-            <div class="ph"><img src="rad.jpg" width="1200" height="655" loading="lazy" style="object-position:42% 50%" alt="Nahaufnahme von Hinterrad und Antrieb eines Rennrads, das an einer Mauer lehnt."></div>
-            <figcaption>
-              <p class="tag-d">Radfahren</p>
-              <h3>Das Rad ist der gr&ouml;&szlig;te Posten</h3>
-              <p>Hier sparst du gebraucht am meisten. F&uuml;r den Einstieg reicht ein solides Rennrad, kein Triathlonrad.</p>
-              <p class="from" data-from="rad">&nbsp;</p>
-            </figcaption>
-          </figure>
-          <figure>
-            <div class="ph"><img src="laufen.jpg" width="1200" height="655" loading="lazy" style="object-position:52% 50%" alt="Ein Läufer in dunklen Laufschuhen setzt auf einer ruhigen Asphaltstraße auf."></div>
-            <figcaption>
-              <p class="tag-d">Laufen</p>
-              <h3>Gute Schuhe, vorher einlaufen</h3>
-              <p>Nie am Renntag zum ersten Mal tragen. Schuhe kaufst du am besten neu und l&auml;ufst sie 40 bis 60 km ein.</p>
-              <p class="from" data-from="schuhe">&nbsp;</p>
-            </figcaption>
-          </figure>
+        <div class="split-body">
+          <div class="tri">
+            <article class="tri-row">
+              <div class="ph"><img src="schwimmen.jpg" width="1200" height="655" loading="lazy" style="object-position:57% 50%" alt="Freiwasserschwimmer mit oranger Badekappe beim Kraulen in einem ruhigen See."></div>
+              <div>
+                <p class="tag-d">Schwimmen</p>
+                <h3>Neoprenanzug, Brille, Kappe</h3>
+                <p>Bei kaltem Wasser meist Pflicht. Gebraucht gut zu bekommen, Brille und Kappe kaufst du neu.</p>
+                <p class="from" data-from="neo">&nbsp;</p>
+              </div>
+            </article>
+            <article class="tri-row">
+              <div class="ph"><img src="rad.jpg" width="1200" height="655" loading="lazy" style="object-position:42% 50%" alt="Nahaufnahme von Hinterrad und Antrieb eines Rennrads, das an einer Mauer lehnt."></div>
+              <div>
+                <p class="tag-d">Radfahren</p>
+                <h3>Das Rad ist der gr&ouml;&szlig;te Posten</h3>
+                <p>Hier sparst du gebraucht am meisten. F&uuml;r den Einstieg reicht ein solides Rennrad, kein Triathlonrad.</p>
+                <p class="from" data-from="rad">&nbsp;</p>
+              </div>
+            </article>
+            <article class="tri-row">
+              <div class="ph"><img src="laufen.jpg" width="1200" height="655" loading="lazy" style="object-position:52% 50%" alt="Ein L&auml;ufer in dunklen Laufschuhen setzt auf einer ruhigen Asphaltstra&szlig;e auf."></div>
+              <div>
+                <p class="tag-d">Laufen</p>
+                <h3>Gute Schuhe, vorher einlaufen</h3>
+                <p>Nie am Renntag zum ersten Mal tragen. Schuhe kaufst du am besten neu und l&auml;ufst sie 40 bis 60 km ein.</p>
+                <p class="from" data-from="schuhe">&nbsp;</p>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section calc-sec" id="rechner" aria-labelledby="h-calc">
+    <section class="section band calc-sec" id="rechner" aria-labelledby="h-calc">
       <div class="wrap">
-        <div class="calc-grid">
-          <div class="calc-intro">
+        <div class="calc-head">
+          <div>
             <p class="kicker">Der Rechner</p>
             <h2 id="h-calc">Dein Budget, sinnvoll verteilt.</h2>
-            <p>F&uuml;nf kurze Angaben, dann bekommst du eine Kaufreihenfolge mit realistischen Preisspannen.</p>
-            <p class="privacy">Nichts wird gespeichert oder verschickt. Die Berechnung l&auml;uft komplett in deinem Browser.</p>
           </div>
+          <p class="calc-lead">F&uuml;nf kurze Angaben, dann bekommst du eine Kaufreihenfolge mit realistischen Preisspannen.</p>
+        </div>
 
-          <form class="calc" id="calcForm" novalidate>
+        <form class="calc" id="calcForm" novalidate>
 
             <fieldset>
               <legend><span class="n">01</span> Welche Distanz?</legend>
+              <div class="fs-body">
               <div class="opts c3">
                 <label class="opt"><input type="radio" name="distance" value="kurz" checked><span class="opt-body"><span class="opt-t">Sprint / Olympisch</span><span class="opt-m">0,75&ndash;1,5 km schwimmen, 20&ndash;40 km Rad, 5&ndash;10 km laufen</span><span class="opt-badge">Guter Einstieg</span></span></label>
                 <label class="opt"><input type="radio" name="distance" value="mittel"><span class="opt-body"><span class="opt-t">Mitteldistanz (70.3)</span><span class="opt-m">1,9 km schwimmen, 90 km Rad, 21,1 km laufen</span></span></label>
                 <label class="opt"><input type="radio" name="distance" value="lang"><span class="opt-body"><span class="opt-t">Langdistanz (Ironman)</span><span class="opt-m">3,8 km schwimmen, 180 km Rad, 42,2 km laufen</span></span></label>
               </div>
+              </div>
             </fieldset>
 
             <fieldset>
               <legend><span class="n">02</span> Wie startest du?</legend>
+              <div class="fs-body">
               <div class="opts c2">
                 <label class="opt"><input type="radio" name="format" value="einzel" checked><span class="opt-body"><span class="opt-t">Einzelstart</span><span class="opt-m">Du machst alle drei Disziplinen selbst.</span></span></label>
                 <label class="opt"><input type="radio" name="format" value="staffel"><span class="opt-body"><span class="opt-t">Staffel</span><span class="opt-m">Du &uuml;bernimmst nur eine Disziplin.</span></span></label>
               </div>
-              <div id="disciplineWrap" hidden style="margin-top:14px;">
-                <p class="note-s" style="margin:0 0 8px;">Welche Disziplin &uuml;bernimmst du?</p>
+              <div id="disciplineWrap" hidden style="margin-top:20px;">
+                <p class="sub-lbl">Welche Disziplin &uuml;bernimmst du?</p>
                 <div class="opts c3">
                   <label class="opt"><input type="radio" name="discipline" value="swim" checked><span class="opt-body"><span class="opt-t">Schwimmen</span></span></label>
                   <label class="opt"><input type="radio" name="discipline" value="bike"><span class="opt-body"><span class="opt-t">Radfahren</span></span></label>
                   <label class="opt"><input type="radio" name="discipline" value="run"><span class="opt-body"><span class="opt-t">Laufen</span></span></label>
                 </div>
               </div>
+              </div>
             </fieldset>
 
             <fieldset>
               <legend><span class="n">03</span> Was ist dein Ziel?</legend>
+              <div class="fs-body">
               <div class="opts c2">
                 <label class="opt"><input type="radio" name="ziel" value="finish" checked><span class="opt-body"><span class="opt-t">Ankommen</span><span class="opt-m">Finisher, die Ziellinie z&auml;hlt.</span></span></label>
                 <label class="opt"><input type="radio" name="ziel" value="zeit"><span class="opt-body"><span class="opt-t">Zielzeit</span><span class="opt-m">Performance z&auml;hlt, Ausr&uuml;stung darf mehr kosten.</span></span></label>
+              </div>
               </div>
             </fieldset>
 
             <fieldset>
               <legend><span class="n">04</span> Wie viel darfst du ausgeben?</legend>
+              <div class="fs-body">
               <div class="fields">
                 <div class="field">
                   <label for="budget">Gesamtbudget</label>
@@ -427,10 +492,12 @@ details.deep p{font-size:15px;color:var(--muted);}
                 </div>
                 <p class="minhint" id="minHint" aria-live="polite"></p>
               </div>
+              </div>
             </fieldset>
 
             <fieldset>
               <legend><span class="n">05</span> Was hast du schon?</legend>
+              <div class="fs-body">
               <div class="chips">
                 <label class="chip"><input type="checkbox" id="ownBike"><span>Rad</span></label>
                 <label class="chip"><input type="checkbox" id="ownWetsuit"><span>Neoprenanzug</span></label>
@@ -438,21 +505,22 @@ details.deep p{font-size:15px;color:var(--muted);}
                 <label class="chip"><input type="checkbox" id="ownWatch"><span>Multisport-Uhr</span></label>
               </div>
               <p class="note-s">Was du schon hast, wird nicht noch einmal eingeplant.</p>
-              <div id="optWrap" hidden style="margin-top:22px;">
-                <p class="note-s" style="margin:0 0 10px;color:var(--ink);font-weight:500;">Extra einplanen</p>
+              <div id="optWrap" hidden style="margin-top:28px;">
+                <p class="sub-lbl">Extra einplanen</p>
                 <div class="chips">
                   <label class="chip"><input type="checkbox" id="wantOpt"><span>Rad-Optimierung (Laufr&auml;der, Aero-Upgrades)</span></label>
                 </div>
                 <p class="note-s">Optional. Sinnvoll, wenn dein Rad schon steht und du gezielt aufr&uuml;sten willst. Ohne Haken bleibt das restliche Geld als Puffer stehen.</p>
               </div>
-              <div id="radTypWrap" style="margin-top:22px;">
-                <p class="note-s" style="margin:0 0 10px;color:var(--ink);font-weight:500;">Rad-Vorliebe (optional)</p>
+              <div id="radTypWrap" style="margin-top:28px;">
+                <p class="sub-lbl">Rad-Vorliebe (optional)</p>
                 <div class="opts c3">
                   <label class="opt"><input type="radio" name="radTyp" value="auto" checked><span class="opt-body"><span class="opt-t">Automatisch</span><span class="opt-m">Rennrad, ab 70.3 bei hohem Budget auch ein TT-Rad.</span></span></label>
                   <label class="opt"><input type="radio" name="radTyp" value="renn"><span class="opt-body"><span class="opt-t">Lieber Rennrad</span><span class="opt-m">Vielseitig, auch abseits von Wettk&auml;mpfen nutzbar.</span></span></label>
                   <label class="opt"><input type="radio" name="radTyp" value="tt"><span class="opt-body"><span class="opt-t">Lieber TT-Rad</span><span class="opt-m">Aero-Vorteil, daf&uuml;r weniger vielseitig.</span></span></label>
                 </div>
                 <p class="note-s" id="radTypHint">Ab <span id="radTypThreshold"></span> Gesamtbudget w&auml;hlbar &ndash; darunter reicht es realistisch nicht f&uuml;r ein eigenes TT-Rad. <a href="triathlonrad-oder-rennrad.html">Unterschiede erkl&auml;rt</a>.</p>
+              </div>
               </div>
             </fieldset>
 
@@ -461,7 +529,6 @@ details.deep p{font-size:15px;color:var(--muted);}
               <button class="btn" type="submit">Kaufplan erstellen <span aria-hidden="true">&rarr;</span></button>
             </div>
           </form>
-        </div>
       </div>
     </section>
 
@@ -486,7 +553,7 @@ details.deep p{font-size:15px;color:var(--muted);}
         <p class="plan-note" id="sectionNote"></p>
         <ol class="plan" id="planList"></ol>
         <p class="owned-note" id="ownedNote" hidden></p>
-        <p class="plan-note" style="margin-top:20px;">Richtwerte, Stand <span class="stand-datum">September 2026</span>. Keine Live-Preise, keine Kaufempfehlung f&uuml;r einzelne Produkte.</p>
+        <p class="plan-note" style="margin-top:24px;">Richtwerte, Stand <span class="stand-datum">September 2026</span>. Keine Live-Preise, keine Kaufempfehlung f&uuml;r einzelne Produkte.</p>
         <div class="actions">
           <button class="btn ghost" type="button" id="btnCopy">Link zum Ergebnis kopieren</button>
           <button class="btn ghost" type="button" id="btnPrint">Als PDF speichern</button>
@@ -496,75 +563,47 @@ details.deep p{font-size:15px;color:var(--muted);}
     </section>
 
     <section class="finish" aria-label="Zieleinlauf">
-      <img src="ziel.jpg" width="1408" height="768" loading="lazy" alt="Ein Läufer hebt beim Zieleinlauf beide Arme, vor ihm jubelt eine Menschenmenge.">
-      <div class="wrap finish-in">
-        <h2>Sparen, wo es geht. Investieren, wo es z&auml;hlt.</h2>
-        <p>Am Ende z&auml;hlt, dass du losl&auml;ufst, nicht, dass alles neu ist.</p>
+      <div class="wrap finish-grid">
+        <figure class="finish-img"><img src="ziel.jpg" width="1408" height="768" loading="lazy" alt="Ein L&auml;ufer hebt beim Zieleinlauf beide Arme, vor ihm jubelt eine Menschenmenge."></figure>
+        <div class="finish-copy">
+          <h2>Sparen, wo es geht. Investieren, wo es z&auml;hlt.</h2>
+          <p>Am Ende z&auml;hlt, dass du losl&auml;ufst, nicht, dass alles neu ist.</p>
+        </div>
       </div>
     </section>
 
     <section class="section" id="ratgeber" aria-labelledby="h-ratgeber">
-      <div class="wrap">
-        <div class="section-head">
+      <div class="wrap split">
+        <div class="split-head sticky">
           <p class="kicker">Mehr zum Thema</p>
           <h2 id="h-ratgeber">Ratgeber f&uuml;r den Einstieg.</h2>
           <p>Sechs kurze Artikel, die den Rechner erg&auml;nzen und alles abdecken, was vor der Ausr&uuml;stungsliste passiert.</p>
         </div>
-        <div class="rg-grid">
-          <a class="rg-card" href="was-kostet-triathlon.html">
-            <span class="tag-d">Kosten &amp; Budget</span>
-            <h3>Triathlon Kosten: Wie teuer ist Triathlon wirklich?</h3>
-            <p>Realistische Mindestkosten vom Sprint bis zum Ironman, aufgeschl&uuml;sselt nach Ausr&uuml;stung und Startgeld.</p>
-            <span class="rg-more">Artikel lesen &rarr;</span>
-          </a>
-          <a class="rg-card" href="triathlon-ausruestung-checkliste.html">
-            <span class="tag-d">Checkliste</span>
-            <h3>Ausr&uuml;stung f&uuml;r Einsteiger</h3>
-            <p>Pflicht, empfohlen und optional, sortiert nach Schwimmen, Rad und Laufen.</p>
-            <span class="rg-more">Artikel lesen &rarr;</span>
-          </a>
-          <a class="rg-card" href="neu-oder-gebraucht-kaufen.html">
-            <span class="tag-d">Kaufen</span>
-            <h3>Neu oder gebraucht kaufen?</h3>
-            <p>Wo sich Gebrauchtkauf lohnt, wo nicht, und worauf du dabei achten solltest.</p>
-            <span class="rg-more">Artikel lesen &rarr;</span>
-          </a>
-          <a class="rg-card" href="triathlonrad-oder-rennrad.html">
-            <span class="tag-d">Ausr&uuml;stung</span>
-            <h3>Triathlonrad oder Rennrad?</h3>
-            <p>Aero-Vorteil, Preis und Vielseitigkeit im Vergleich, und ab wann sich ein eigenes TT-Rad lohnt.</p>
-            <span class="rg-more">Artikel lesen &rarr;</span>
-          </a>
-          <a class="rg-card" href="sprint-triathlon-einsteiger-budget.html">
-            <span class="tag-d">Einstieg</span>
-            <h3>Sprint-Triathlon f&uuml;r Einsteiger</h3>
-            <p>Distanzen, n&ouml;tige Ausr&uuml;stung und realistische Kosten f&uuml;r deinen ersten Start.</p>
-            <span class="rg-more">Artikel lesen &rarr;</span>
-          </a>
-          <a class="rg-card" href="neoprenanzug-triathlon-kaufen.html">
-            <span class="tag-d">Schwimmen</span>
-            <h3>Neoprenanzug: kaufen, leihen oder gebraucht?</h3>
-            <p>Wann du einen Neo brauchst, was er kostet und welcher Weg zu dir passt.</p>
-            <span class="rg-more">Artikel lesen &rarr;</span>
-          </a>
+        <div class="split-body">
+          <ol class="rg-list">
+            <li><a class="rg-row" href="was-kostet-triathlon.html"><span class="rg-n">01</span><span><span class="tag-d">Kosten &amp; Budget</span><h3>Triathlon Kosten: Wie teuer ist Triathlon wirklich?</h3><p>Realistische Mindestkosten vom Sprint bis zum Ironman, aufgeschl&uuml;sselt nach Ausr&uuml;stung und Startgeld.</p></span><span class="rg-arrow" aria-hidden="true">&rarr;</span></a></li>
+            <li><a class="rg-row" href="triathlon-ausruestung-checkliste.html"><span class="rg-n">02</span><span><span class="tag-d">Checkliste</span><h3>Ausr&uuml;stung f&uuml;r Einsteiger</h3><p>Pflicht, empfohlen und optional, sortiert nach Schwimmen, Rad und Laufen.</p></span><span class="rg-arrow" aria-hidden="true">&rarr;</span></a></li>
+            <li><a class="rg-row" href="neu-oder-gebraucht-kaufen.html"><span class="rg-n">03</span><span><span class="tag-d">Kaufen</span><h3>Neu oder gebraucht kaufen?</h3><p>Wo sich Gebrauchtkauf lohnt, wo nicht, und worauf du dabei achten solltest.</p></span><span class="rg-arrow" aria-hidden="true">&rarr;</span></a></li>
+            <li><a class="rg-row" href="triathlonrad-oder-rennrad.html"><span class="rg-n">04</span><span><span class="tag-d">Ausr&uuml;stung</span><h3>Triathlonrad oder Rennrad?</h3><p>Aero-Vorteil, Preis und Vielseitigkeit im Vergleich, und ab wann sich ein eigenes TT-Rad lohnt.</p></span><span class="rg-arrow" aria-hidden="true">&rarr;</span></a></li>
+            <li><a class="rg-row" href="sprint-triathlon-einsteiger-budget.html"><span class="rg-n">05</span><span><span class="tag-d">Einstieg</span><h3>Sprint-Triathlon f&uuml;r Einsteiger</h3><p>Distanzen, n&ouml;tige Ausr&uuml;stung und realistische Kosten f&uuml;r deinen ersten Start.</p></span><span class="rg-arrow" aria-hidden="true">&rarr;</span></a></li>
+            <li><a class="rg-row" href="neoprenanzug-triathlon-kaufen.html"><span class="rg-n">06</span><span><span class="tag-d">Schwimmen</span><h3>Neoprenanzug: kaufen, leihen oder gebraucht?</h3><p>Wann du einen Neo brauchst, was er kostet und welcher Weg zu dir passt.</p></span><span class="rg-arrow" aria-hidden="true">&rarr;</span></a></li>
+          </ol>
         </div>
       </div>
     </section>
 
-    <section class="section" id="preise" aria-labelledby="h-preise">
-      <div class="wrap">
-        <div class="method-grid">
-          <div class="ph"><img src="ausruestung.jpg" width="1200" height="655" loading="lazy" alt="Triathlon-Ausrüstung von oben auf einem weißen Handtuch: Laufschuhe, Uhr, Helm, Neoprenanzug, Brille, Gels und Trinkflasche."></div>
-          <div>
-            <p class="kicker">Transparenz</p>
-            <h2 id="h-preise">Woher die Zahlen kommen.</h2>
-            <p>Die Preisspannen sind im <span class="stand-datum">September 2026</span> gegen echte Angebote abgeglichen. Es sind Richtwerte aus einem gepr&uuml;ften Schnappschuss, keine Live-Preise. Die Seite fragt nicht in Echtzeit bei H&auml;ndlern nach.</p>
-            <p>Zuerst bekommt jeder Posten, den du brauchst, seinen Mindestpreis, gebraucht, wo es sinnvoll ist. Was danach &uuml;brig bleibt, geht in Verbesserungen.</p>
-            <details class="deep">
-              <summary>Die Berechnung im Detail</summary>
-              <p>Bei Rad, Neoprenanzug und Uhr steht zus&auml;tzlich ein konkretes, recherchiertes Beispielprodukt mit Link zur Produktseite. Die Zuteilung l&auml;uft in zwei Stufen: Zuerst bekommt jede Pflicht- und Empfohlen-Kategorie ihren Mindestpreis (gebraucht, falls verf&uuml;gbar, sonst neu). Reicht das Budget daf&uuml;r nicht, erscheint eine Warnung mit der exakten Differenz. Das verbleibende Geld wird danach proportional nach Priorit&auml;t auf Verbesserungen verteilt, bis jede Kategorie ihren realistischen H&ouml;chstpreis erreicht. Der Rest flie&szlig;t in die Kategorie mit der offensten Preisspanne, meist das Rad. Im Staffel-Modus wird nur die Ausr&uuml;stung deiner eigenen Disziplin berechnet. Bei mehreren Rennen pro Saison werden nur Startgeld sowie Verpflegung und Verschlei&szlig;material hochskaliert, keine Grundausstattung.</p>
-            </details>
-          </div>
+    <section class="section band" id="preise" aria-labelledby="h-preise">
+      <div class="wrap method">
+        <div class="ph"><img src="ausruestung.jpg" width="1200" height="655" loading="lazy" alt="Triathlon-Ausr&uuml;stung von oben auf einem wei&szlig;en Handtuch: Laufschuhe, Uhr, Helm, Neoprenanzug, Brille, Gels und Trinkflasche."></div>
+        <div class="method-copy">
+          <p class="kicker">Transparenz</p>
+          <h2 id="h-preise">Woher die Zahlen kommen.</h2>
+          <p>Die Preisspannen sind im <span class="stand-datum">September 2026</span> gegen echte Angebote abgeglichen. Es sind Richtwerte aus einem gepr&uuml;ften Schnappschuss, keine Live-Preise. Die Seite fragt nicht in Echtzeit bei H&auml;ndlern nach.</p>
+          <p>Zuerst bekommt jeder Posten, den du brauchst, seinen Mindestpreis, gebraucht, wo es sinnvoll ist. Was danach &uuml;brig bleibt, geht in Verbesserungen.</p>
+          <details class="deep">
+            <summary>Die Berechnung im Detail</summary>
+            <p>Bei Rad, Neoprenanzug und Uhr steht zus&auml;tzlich ein konkretes, recherchiertes Beispielprodukt mit Link zur Produktseite. Die Zuteilung l&auml;uft in zwei Stufen: Zuerst bekommt jede Pflicht- und Empfohlen-Kategorie ihren Mindestpreis (gebraucht, falls verf&uuml;gbar, sonst neu). Reicht das Budget daf&uuml;r nicht, erscheint eine Warnung mit der exakten Differenz. Das verbleibende Geld wird danach proportional nach Priorit&auml;t auf Verbesserungen verteilt, bis jede Kategorie ihren realistischen H&ouml;chstpreis erreicht. Der Rest flie&szlig;t in die Kategorie mit der offensten Preisspanne, meist das Rad. Im Staffel-Modus wird nur die Ausr&uuml;stung deiner eigenen Disziplin berechnet. Bei mehreren Rennen pro Saison werden nur Startgeld sowie Verpflegung und Verschlei&szlig;material hochskaliert, keine Grundausstattung.</p>
+          </details>
         </div>
       </div>
     </section>
@@ -573,14 +612,21 @@ details.deep p{font-size:15px;color:var(--muted);}
 
   <footer class="site-footer">
     <div class="foot-in">
-      <div>
+      <div class="foot-brand">
         <div class="brand">Tria<em>Budget</em></div>
         <p>Ein unabh&auml;ngiges Projekt ohne Werbung. Preisspannen sind Richtwerte, keine verbindlichen oder tagesaktuellen Herstellerdaten.</p>
       </div>
-      <div class="foot-links">
-        <a href="#" data-page="impressum">Impressum</a>
-        <a href="#" data-page="datenschutz">Datenschutz</a>
-      </div>
+      <nav class="foot-col" aria-label="Seiten">
+        <p class="lbl">Seiten</p>
+        <a href="#rechner">Rechner</a>
+        <a href="#ratgeber">Ratgeber</a>
+        <a href="#preise">Woher die Zahlen kommen</a>
+      </nav>
+      <nav class="foot-col" aria-label="Rechtliches">
+        <p class="lbl">Rechtliches</p>
+        <a href="#impressum" data-page="impressum">Impressum</a>
+        <a href="#datenschutz" data-page="datenschutz">Datenschutz</a>
+      </nav>
     </div>
   </footer>
 
@@ -644,6 +690,7 @@ details.deep p{font-size:15px;color:var(--muted);}
     <a class="legal-back" href="#" data-back>&larr; Zur&uuml;ck zum Rechner</a>
   </div>
 </div>
+
 
 <script>
 // ==== Google-Sheet-Anbindung ====
@@ -1284,6 +1331,10 @@ function showPage(name){
   if(name === 'calc'){ main.style.display = ''; }
   else { main.style.display = 'none'; $('page-' + name).style.display = 'block'; }
   window.scrollTo(0,0);
+  try{
+    if(name === 'calc'){ if(/^#(impressum|datenschutz)$/.test(location.hash)) history.replaceState(null, '', location.pathname + location.search); }
+    else { history.replaceState(null, '', '#' + name); }
+  }catch(e){}
 }
 
 // ==== Start ====
@@ -1308,6 +1359,7 @@ syncRadTyp();
 const fromLink = applyHash();
 updateMinHint();
 loadExamplesFromSheet().then(() => { if(lastRender) drawPlan(); });
+{ const hp = location.hash.slice(1); if(hp === 'impressum' || hp === 'datenschutz'){ showPage(hp); } }
 if(fromLink){ calculate(false); setTimeout(() => $('results').scrollIntoView(), 60); }
 
 </script>
