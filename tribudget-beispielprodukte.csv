@@ -1,28 +1,28 @@
-category,tier,produkt,preis_eur,link,quelle_hinweis,stand,tt
-rad,Budget,Van Rysel EDR AF Shimano Claris 2x8 (Decathlon-Einstieg),800,https://www.decathlon.de/alle-sportarten-a-z/fahrrad-welt/van-rysel-rennrader,Einstiegspreis modellabhaengig - vor Ort/online pruefen,2026-09,
-rad,Mittelklasse,Liv Langma Advanced 3,1529,https://www.bike-components.de/de/rennrad/,Preis bei bike-components beobachtet,2026-09,
-rad,Mittelklasse,Cube Agree C:62 One,2319,https://www.bike-components.de/de/rennrad/,Preis bei bike-components beobachtet,2026-09,
-rad,Premium,Orbea Orca M30i - 105 Di2,2349,https://www.bike-components.de/de/rennrad/,Preis bei bike-components beobachtet,2026-09,
-rad,Premium,BMC Teammachine R01 Five,4349,https://www.bike-components.de/de/rennrad/,Preis bei bike-components beobachtet,2026-09,
-rad,Dediziertes Triathlonrad,Cube Aerium C:68X SLT,7199,https://www.bike-components.de/de/rennrad/,,2026-09,1
-radOpt,Budget,Einsteiger-Carbonlaufradsatz,250,https://www.bike-components.de/de/komponenten/laufraeder/,,2026-09,
-radOpt,Mittelklasse,Mittelklasse-Laufradsatz Carbon,700,https://www.bike-components.de/de/komponenten/laufraeder/,,2026-09,
-radOpt,Premium,Premium-Aero-Laufradsatz,1800,https://www.bike-components.de/de/komponenten/laufraeder/,,2026-09,
-neo,Budget,Orca Athlex Float,255,https://www.bike24.de/marken/orca,,2026-09,
-neo,Mittelklasse,Zone3 Aspire Wetsuit (Damen),480,https://triathlon.de/collections/schwimmen,,2026-09,
-neo,Premium/Marke,Blueseventy Fusion,600,https://blueseventy.eu/de/collections/wetsuits,,2026-09,
-uhr,Budget,Garmin Forerunner 55,155,https://www.bike24.de/pulsmesser-sportuhren.html/f.marke.garmin,,2026-09,
-uhr,Budget-Mittelklasse,Coros Pace 3,220,https://coros.com/pace3,,2026-09,
-uhr,Mittelklasse,Polar Pacer,229,https://www.polar.com/de/all-watches,,2026-09,
-uhr,Mittelklasse-Hoch,Garmin Forerunner 265,600,https://www.bike24.de/pulsmesser-sportuhren.html/f.marke.garmin,Preis via Drittanbieter-Listing - stark schwankend,2026-09,
-trisuit,Budget,Zone3 Activate Trisuit,120,https://www.bike24.de/p1710500.html,,2026-09,
-trisuit,Premium,Castelli Free Tri Suit,230,https://www.castelli-cycling.com/US/en/Men/Triathlon/Triathlon-Suits/c/Man-Tri-Sui,,2026-09,
-schwimmzub,Budget,Sailfish Goggle Sweden Silver Mirror,16,https://triathlon.de/collections/schwimmbrille,,2026-09,
-schwimmzub,Budget-Mittelklasse,Speedo Schwimmbrillen (diverse),18,https://de.speedo.com/schwimmbrillen/alle-schwimmbrillen.list,,2026-09,
-schwimmzub,Mittelklasse,Zone3 Venator-X Polarised,45,https://triathlon.de/collections/schwimmbrille,,2026-09,
-schuhe,Budget,Einsteiger-Laufschuh (z. B. Decathlon Kiprun),90,https://www.tradeinn.com/runnerinn/de/herrenschuhe-running-schuhe/10004/s,,2026-09,
-schuhe,Mittelklasse,Asics Novablast 5,140,https://www.tradeinn.com/runnerinn/de/herrenschuhe-running-schuhe/10004/s,,2026-09,
-schuhe,Premium,Saucony Endorphin Pro 4 (Wettkampf-Carbonschuh),230,https://www.tradeinn.com/runnerinn/de/herrenschuhe-running-schuhe/10004/s,,2026-09,
-renntag,Budget,Gels/Riegel fuer ein Rennen (Basisversorgung),20,,Kein Einzelprodukt-Link - allgemeine Kategorie,2026-09,
-renntag,Mittelklasse,Gels + Flaschenhalter + Rahmentasche,40,,Kein Einzelprodukt-Link - allgemeine Kategorie,2026-09,
-renntag,Premium,Vollausstattung inkl. Wechselbeutel fuer mehrere Rennen,90,,Kein Einzelprodukt-Link - allgemeine Kategorie,2026-09,
+category,tier,produkt,preis_eur,link,quelle_hinweis,stand,tt,partner,link_typ,url_produkt,ean,affiliate,geprueft_am,pruefnotiz
+rad,Budget,Van Rysel EDR AF Shimano Claris 2x8 (Decathlon-Einstieg),800,https://www.decathlon.de/p/endurance-rennrad-edr-af-shimano-claris-2-8-grau/343180/c200c200m8771990,Einstiegspreis modellabhaengig - vor Ort/online pruefen,2026-10,,Decathlon,produkt,https://www.decathlon.de/p/endurance-rennrad-edr-af-shimano-claris-2-8-grau/343180/c200c200m8771990,,unklar,2026-10-27,Decathlon 799;99 EUR (Claris 2x8 grau) bestaetigt
+rad,Mittelklasse,Liv Langma Advanced 3 (Damen),1649,https://www.bike24.de/p1960278.html,Preis bei bike-components beobachtet,2026-10,,Bike24,produkt,https://www.bike24.de/p1960278.html,,unklar,2026-10-27,Bike24 1649 EUR (Clear Sky; Rosy Brown 1799; UVP 2299); vorher 1529 bei bike-components nicht belegbar
+rad,Mittelklasse,Cube Agree C:62 One,2799,https://www.bike24.de/p11057946.html,Preis bei bike-components beobachtet,2026-10,,Bike24,produkt,https://www.bike24.de/p11057946.html,,unklar,2026-10-27,Bike24 Modell 2027 2799 EUR; vorher 2319
+rad,Premium,Orbea Orca M35i - 105 Di2,3019,https://www.bike24.de/p1884828.html,Preis bei bike-components beobachtet,2026-10,,Bike24,produkt,https://www.bike24.de/p1884828.html,,unklar,2026-10-27,M30i bei Bike24 nicht gelistet; M35i 105 Di2 (2025) 3019 EUR (UVP 4399)
+rad,Premium,BMC Teammachine R01 Five,3999,https://www.bike24.de/p11013177.html,Preis bei bike-components beobachtet,2026-10,,Bike24,produkt,https://www.bike24.de/p11013177.html,,unklar,2026-10-27,Bike24 Modell 2027 3999 EUR (UVP 6499); 2026er 4299
+rad,Dediziertes Triathlonrad,Cube Aerium C:68X SLT Aero,8099,https://www.bike24.de/p1959278.html,,2026-10,1,Bike24,produkt,https://www.bike24.de/p1959278.html,,unklar,2026-10-27,Bike24 8099 EUR (UVP 9999) aktuell nicht lieferbar; vorher 7199
+radOpt,Budget,Miche S50 Carbon-Laufradsatz (XDR),500,https://www.bike24.de/p11044771.html,,2026-10,,Bike24,produkt,https://www.bike24.de/p11044771.html,,unklar,2026-10-27,Bike24 Sonderangebot 499;99 EUR (zeitlich begrenzt moeglich); 250 EUR fuer Carbon nicht belegbar
+radOpt,Mittelklasse,Newmen Advanced A.50 Carbon-Laufradsatz,750,https://www.bike24.de/p11039149.html,,2026-10,,Bike24,produkt,https://www.bike24.de/p11039149.html,,unklar,2026-10-27,Bike24 749;99 EUR (UVP 898); vorher 700
+radOpt,Premium,Zipp 404 S Carbon-Laufradsatz,870,https://www.bike24.de/p11056694.html,,2026-10,,Bike24,produkt,https://www.bike24.de/p11056694.html,,unklar,2026-10-27,Bike24 869;99 EUR (UVP 1100); vorher 1800
+neo,Budget,Orca Athlex Float,255,https://www.bike24.de/p1872384.html,,2026-10,,Bike24,produkt,https://www.bike24.de/p1872384.html,,unklar,2026-10-27,Preis 254;99 EUR (UVP 299) im Browser bestaetigt
+neo,Mittelklasse,Zone3 Aspire Wetsuit (Damen),511,https://www.bike24.de/p11004856.html,,2026-10,,Bike24,produkt,https://www.bike24.de/p11004856.html,,unklar,2026-10-27,Bike24 Damen 510;99 EUR (UVP 689); vorher 480
+neo,Premium/Marke,Blueseventy Fusion (Herren),380,https://blueseventy.eu/de/products/fusion-wetsuit-mens,,2026-10,,Blueseventy,produkt,https://blueseventy.eu/de/products/fusion-wetsuit-mens,,ja,2026-10-27,Shop 380 EUR (JSON-LD); vorher 600
+uhr,Budget,Garmin Forerunner 165,200,https://www.bike24.de/p1817252.html,,2026-10,,Bike24,produkt,https://www.bike24.de/p1817252.html,,unklar,2026-10-27,FR55 bei Bike24 nicht mehr gelistet; FR165 199;99 EUR (UVP 229;99)
+uhr,Budget-Mittelklasse,Coros Pace 3,229,https://coros.com/eu/pace3,,2026-10,,Coros,produkt,https://coros.com/eu/pace3,,unklar,2026-10-27,EU-Shop 229 EUR (JSON-LD); vorher 220
+uhr,Mittelklasse,Polar Pacer,240,https://www.polar.com/de/pacer,,2026-10,,Polar,produkt,https://www.polar.com/de/pacer,,ja,2026-10-27,UVP 239;90 EUR; aktuell Outlet 143;94 EUR (Aktion; nicht uebernommen)
+uhr,Mittelklasse-Hoch,Garmin Forerunner 265,330,https://www.bike24.de/p1735533.html,Preis via Drittanbieter-Listing - stark schwankend,2026-10,,Bike24,produkt,https://www.bike24.de/p1735533.html,,unklar,2026-10-27,Bike24 329;99 EUR (UVP 419;99); vorher 600
+trisuit,Budget,Zone3 Activate Trisuit,85,https://www.bike24.de/p1710500.html,,2026-10,,Bike24,produkt,https://www.bike24.de/p1710500.html,,unklar,2026-10-27,Preis 84;99 EUR (UVP 119; vorher UVP eingetragen); Damen-Variante
+trisuit,Premium,Castelli Free Sanremo 3 Trisuit (Herren),128,https://www.bike24.de/p1876830.html,,2026-10,,Bike24,produkt,https://www.bike24.de/p1876830.html,,unklar,2026-10-27,Free Tri Suit nicht mehr im Sortiment; Nachfolger Sanremo 3 aermellos 127;99 EUR (UVP 210)
+schwimmzub,Budget,Sailfish Sweden Schwimmbrille Silver Mirror,12,https://www.bike24.de/p1810408.html,,2026-10,,Bike24,produkt,https://www.bike24.de/p1810408.html,,unklar,2026-10-27,Bike24 11;99 EUR (UVP 18); vorher 16
+schwimmzub,Budget-Mittelklasse,Speedo Schwimmbrillen (diverse),18,https://de.speedo.com/schwimmbrillen/alle-schwimmbrillen.list,,2026-09,,Speedo,kategorie,,,ja,,Pauschaleintrag (diverse) - kein Einzelprodukt; Modell festlegen
+schwimmzub,Mittelklasse,Zone3 Venator-X Polarised,34,https://www.bike24.de/p1449879.html,,2026-10,,Bike24,produkt,https://www.bike24.de/p1449879.html,,unklar,2026-10-27,Bike24 Polarized 33;99 EUR (UVP 45; vorher UVP eingetragen)
+schuhe,Budget,Kiprun KS500 2 (Decathlon-Einsteiger),50,https://www.decathlon.de/p/laufschuhe-herren-ks500-2-schwarz-gelb/341860/c382c132m8772865,,2026-10,,Decathlon,produkt,https://www.decathlon.de/p/laufschuhe-herren-ks500-2-schwarz-gelb/341860/c382c132m8772865,,unklar,2026-10-27,Decathlon 49;99 EUR; vorher 90
+schuhe,Mittelklasse,Asics Novablast 6,136,https://www.tradeinn.com/runnerinn/de/asics-novablast-6-laufschuhe/143119455/p,,2026-10,,Tradeinn/Runnerinn,produkt,https://www.tradeinn.com/runnerinn/de/asics-novablast-6-laufschuhe/143119455/p,,ja,2026-10-27,Runnerinn ab 136 EUR; Novablast 5 nur noch ab 90 EUR (Auslaufmodell)
+schuhe,Premium,Saucony Endorphin Pro 5 (Wettkampf-Carbonschuh),187,https://www.tradeinn.com/runnerinn/de/saucony-endorphin-pro-5-laufschuhe/143325072/p,,2026-10,,Tradeinn/Runnerinn,produkt,https://www.tradeinn.com/runnerinn/de/saucony-endorphin-pro-5-laufschuhe/143325072/p,,ja,2026-10-27,Pro 4 nicht mehr gelistet; Pro 5 187;49 EUR (UVP 270; guenstigste Variante 152;99)
+renntag,Budget,Gels/Riegel fuer ein Rennen (Basisversorgung),20,,Kein Einzelprodukt-Link - allgemeine Kategorie,2026-09,,,keiner,,,,,
+renntag,Mittelklasse,Gels + Flaschenhalter + Rahmentasche,40,,Kein Einzelprodukt-Link - allgemeine Kategorie,2026-09,,,keiner,,,,,
+renntag,Premium,Vollausstattung inkl. Wechselbeutel fuer mehrere Rennen,90,,Kein Einzelprodukt-Link - allgemeine Kategorie,2026-09,,,keiner,,,,,

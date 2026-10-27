@@ -562,7 +562,7 @@ details.deep p{font-size:15px;color:var(--muted);}
             <p>Zuerst bekommt jeder Posten, den du brauchst, seinen Mindestpreis, gebraucht, wo es sinnvoll ist. Was danach &uuml;brig bleibt, geht in Verbesserungen.</p>
             <details class="deep">
               <summary>Die Berechnung im Detail</summary>
-              <p>Bei Rad, Neoprenanzug und Uhr steht zus&auml;tzlich ein konkretes, recherchiertes Beispielprodukt mit Link zur Kategorieseite. Die Zuteilung l&auml;uft in zwei Stufen: Zuerst bekommt jede Pflicht- und Empfohlen-Kategorie ihren Mindestpreis (gebraucht, falls verf&uuml;gbar, sonst neu). Reicht das Budget daf&uuml;r nicht, erscheint eine Warnung mit der exakten Differenz. Das verbleibende Geld wird danach proportional nach Priorit&auml;t auf Verbesserungen verteilt, bis jede Kategorie ihren realistischen H&ouml;chstpreis erreicht. Der Rest flie&szlig;t in die Kategorie mit der offensten Preisspanne, meist das Rad. Im Staffel-Modus wird nur die Ausr&uuml;stung deiner eigenen Disziplin berechnet. Bei mehreren Rennen pro Saison werden nur Startgeld sowie Verpflegung und Verschlei&szlig;material hochskaliert, keine Grundausstattung.</p>
+              <p>Bei Rad, Neoprenanzug und Uhr steht zus&auml;tzlich ein konkretes, recherchiertes Beispielprodukt mit Link zur Produktseite. Die Zuteilung l&auml;uft in zwei Stufen: Zuerst bekommt jede Pflicht- und Empfohlen-Kategorie ihren Mindestpreis (gebraucht, falls verf&uuml;gbar, sonst neu). Reicht das Budget daf&uuml;r nicht, erscheint eine Warnung mit der exakten Differenz. Das verbleibende Geld wird danach proportional nach Priorit&auml;t auf Verbesserungen verteilt, bis jede Kategorie ihren realistischen H&ouml;chstpreis erreicht. Der Rest flie&szlig;t in die Kategorie mit der offensten Preisspanne, meist das Rad. Im Staffel-Modus wird nur die Ausr&uuml;stung deiner eigenen Disziplin berechnet. Bei mehreren Rennen pro Saison werden nur Startgeld sowie Verpflegung und Verschlei&szlig;material hochskaliert, keine Grundausstattung.</p>
             </details>
           </div>
         </div>
@@ -819,50 +819,50 @@ function priceRangeText(cat, tier, amt){
   return s;
 }
 
-// Konkrete, recherchierte Beispielprodukte (Stand September 2026) — keine Live-Preise,
-// Links f\u00fchren zu Kategorie-/Markenseiten, nicht zu einzelnen Produktseiten mit Preisgarantie.
+// Konkrete, recherchierte Beispielprodukte (Produktpreise einzeln geprüft am 27.10.2026) — keine Live-Preise,
+// Links f\u00fchren zu den jeweiligen Produktseiten; Preise k\u00f6nnen sich jederzeit \u00e4ndern.
 const EXAMPLE_TIERS = {
   rad: [
-    { price: 800,  text: "Van Rysel EDR AF Shimano Claris 2\u00d78 (Decathlon-Einstieg)", url: "https://www.decathlon.de/alle-sportarten-a-z/fahrrad-welt/van-rysel-rennrader" },
-    { price: 1529, text: "Liv Langma Advanced 3", url: "https://www.bike-components.de/de/rennrad/" },
-    { price: 2319, text: "Cube Agree C:62 One", url: "https://www.bike-components.de/de/rennrad/" },
-    { price: 2349, text: "Orbea Orca M30i \u2013 105 Di2", url: "https://www.bike-components.de/de/rennrad/" },
-    { price: 4349, text: "BMC Teammachine R01 Five", url: "https://www.bike-components.de/de/rennrad/" },
-    { price: 7199, text: "Cube Aerium C:68X SLT (dediziertes Triathlonrad)", url: "https://www.bike-components.de/de/rennrad/", tt: true }
+    { price: 800, text: "Van Rysel EDR AF Shimano Claris 2x8 (Decathlon-Einstieg)", url: "https://www.decathlon.de/p/endurance-rennrad-edr-af-shimano-claris-2-8-grau/343180/c200c200m8771990" },
+    { price: 1649, text: "Liv Langma Advanced 3 (Damen)", url: "https://www.bike24.de/p1960278.html" },
+    { price: 2799, text: "Cube Agree C:62 One", url: "https://www.bike24.de/p11057946.html" },
+    { price: 3019, text: "Orbea Orca M35i - 105 Di2", url: "https://www.bike24.de/p1884828.html" },
+    { price: 3999, text: "BMC Teammachine R01 Five", url: "https://www.bike24.de/p11013177.html" },
+    { price: 8099, text: "Cube Aerium C:68X SLT Aero", url: "https://www.bike24.de/p1959278.html", tt: true }
   ],
   radOpt: [
-    { price: 250,  text: "Einsteiger-Carbonlaufradsatz", url: "https://www.bike-components.de/de/komponenten/laufraeder/" },
-    { price: 700,  text: "Mittelklasse-Laufradsatz Carbon", url: "https://www.bike-components.de/de/komponenten/laufraeder/" },
-    { price: 1800, text: "Premium-Aero-Laufradsatz", url: "https://www.bike-components.de/de/komponenten/laufraeder/" }
+    { price: 500, text: "Miche S50 Carbon-Laufradsatz (XDR)", url: "https://www.bike24.de/p11044771.html" },
+    { price: 750, text: "Newmen Advanced A.50 Carbon-Laufradsatz", url: "https://www.bike24.de/p11039149.html" },
+    { price: 870, text: "Zipp 404 S Carbon-Laufradsatz", url: "https://www.bike24.de/p11056694.html" }
   ],
   neo: [
-    { price: 255, text: "Orca Athlex Float", url: "https://www.bike24.de/marken/orca" },
-    { price: 480, text: "Zone3 Aspire Wetsuit (Damen)", url: "https://triathlon.de/collections/schwimmen" },
-    { price: 600, text: "Blueseventy Fusion (Premium)", url: "https://blueseventy.eu/de/collections/wetsuits" }
+    { price: 255, text: "Orca Athlex Float", url: "https://www.bike24.de/p1872384.html" },
+    { price: 511, text: "Zone3 Aspire Wetsuit (Damen)", url: "https://www.bike24.de/p11004856.html" },
+    { price: 380, text: "Blueseventy Fusion (Herren)", url: "https://blueseventy.eu/de/products/fusion-wetsuit-mens" }
   ],
   uhr: [
-    { price: 155, text: "Garmin Forerunner 55", url: "https://www.bike24.de/pulsmesser-sportuhren.html/f.marke.garmin" },
-    { price: 220, text: "Coros Pace 3", url: "https://coros.com/pace3" },
-    { price: 229, text: "Polar Pacer", url: "https://www.polar.com/de/all-watches" },
-    { price: 600, text: "Garmin Forerunner 265", url: "https://www.bike24.de/pulsmesser-sportuhren.html/f.marke.garmin" }
+    { price: 200, text: "Garmin Forerunner 165", url: "https://www.bike24.de/p1817252.html" },
+    { price: 229, text: "Coros Pace 3", url: "https://coros.com/eu/pace3" },
+    { price: 240, text: "Polar Pacer", url: "https://www.polar.com/de/pacer" },
+    { price: 330, text: "Garmin Forerunner 265", url: "https://www.bike24.de/p1735533.html" }
   ],
   trisuit: [
-    { price: 120, text: "Zone3 Activate Trisuit", url: "https://www.bike24.de/p1710500.html" },
-    { price: 230, text: "Castelli Free Tri Suit (Premium)", url: "https://www.castelli-cycling.com/US/en/Men/Triathlon/Triathlon-Suits/c/Man-Tri-Sui" }
+    { price: 85, text: "Zone3 Activate Trisuit", url: "https://www.bike24.de/p1710500.html" },
+    { price: 128, text: "Castelli Free Sanremo 3 Trisuit (Herren)", url: "https://www.bike24.de/p1876830.html" }
   ],
   schwimmzub: [
-    { price: 16, text: "Sailfish Goggle Sweden Silver Mirror", url: "https://triathlon.de/collections/schwimmbrille" },
+    { price: 12, text: "Sailfish Sweden Schwimmbrille Silver Mirror", url: "https://www.bike24.de/p1810408.html" },
     { price: 18, text: "Speedo Schwimmbrillen (diverse)", url: "https://de.speedo.com/schwimmbrillen/alle-schwimmbrillen.list" },
-    { price: 45, text: "Zone3 Venator-X Polarised", url: "https://triathlon.de/collections/schwimmbrille" }
+    { price: 34, text: "Zone3 Venator-X Polarised", url: "https://www.bike24.de/p1449879.html" }
   ],
   schuhe: [
-    { price: 90,  text: "Einsteiger-Laufschuh (z.\u00a0B. Decathlon Kiprun)", url: "https://www.tradeinn.com/runnerinn/de/herrenschuhe-running-schuhe/10004/s" },
-    { price: 140, text: "Asics Novablast 5", url: "https://www.tradeinn.com/runnerinn/de/herrenschuhe-running-schuhe/10004/s" },
-    { price: 230, text: "Saucony Endorphin Pro 4 (Wettkampf-Carbonschuh)", url: "https://www.tradeinn.com/runnerinn/de/herrenschuhe-running-schuhe/10004/s" }
+    { price: 50, text: "Kiprun KS500 2 (Decathlon-Einsteiger)", url: "https://www.decathlon.de/p/laufschuhe-herren-ks500-2-schwarz-gelb/341860/c382c132m8772865" },
+    { price: 136, text: "Asics Novablast 6", url: "https://www.tradeinn.com/runnerinn/de/asics-novablast-6-laufschuhe/143119455/p" },
+    { price: 187, text: "Saucony Endorphin Pro 5 (Wettkampf-Carbonschuh)", url: "https://www.tradeinn.com/runnerinn/de/saucony-endorphin-pro-5-laufschuhe/143325072/p" }
   ],
   renntag: [
     { price: 20, text: "Gels/Riegel f\u00fcr ein Rennen (Basisversorgung)", url: "" },
-    { price: 40, text: "Gels, Flaschenhalter und Rahmentasche", url: "" },
+    { price: 40, text: "Gels, Flaschenhalter, Rahmentasche", url: "" },
     { price: 90, text: "Vollausstattung inkl. Wechselbeutel f\u00fcr mehrere Rennen", url: "" }
   ]
 };
