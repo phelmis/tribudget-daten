@@ -33,7 +33,7 @@
   --gutter:clamp(20px,4vw,48px);
   --max:1200px;
   --r:2px;
-  --sec:clamp(72px,9vw,128px);
+  --sec:clamp(64px,7vw,104px);
 }
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;scroll-padding-top:16px;}
@@ -73,13 +73,13 @@ p{margin:0;}
 .textlink:hover{color:var(--accent-dark);text-decoration-color:var(--accent);}
 
 /* ---------- Hero ---------- */
-.hero{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;align-items:end;max-width:var(--max);margin:0 auto;padding:clamp(24px,4vw,56px) var(--gutter) clamp(48px,6vw,88px);}
+.hero{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;align-items:center;max-width:var(--max);margin:0 auto;padding:clamp(16px,3vw,40px) var(--gutter) clamp(48px,5vw,72px);}
 .hero-copy{grid-column:1 / span 7;padding-bottom:4px;padding-right:24px;}
 .hero h1 span{display:block;text-wrap:wrap;}
 .hero h1 span + span{color:var(--muted);}
 .hero-sub{font-size:19px;line-height:1.5;color:var(--ink2);max-width:36ch;margin:28px 0 36px;}
 .cta-row{display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
-.hero-media{grid-column:8 / -1;aspect-ratio:4/5;overflow:hidden;background:var(--band);}
+.hero-media{grid-column:8 / -1;aspect-ratio:1/1.05;overflow:hidden;background:var(--band);}
 .hero-media img{width:100%;height:100%;object-fit:cover;object-position:79% 50%;}
 @media(max-width:900px){
   .hero{grid-template-columns:1fr;row-gap:40px;}
@@ -104,39 +104,34 @@ p{margin:0;}
 /* ---------- Sektionen ---------- */
 .section{padding:var(--sec) 0;}
 .band{background:var(--band);}
-.split{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:48px;}
-.split-head{grid-column:1 / span 4;align-self:start;}
-.split-head h2{margin:0 0 20px;}
-.split-head p:not(.kicker){color:var(--ink2);max-width:34ch;}
-.split-body{grid-column:6 / -1;min-width:0;}
-@media(min-width:961px){.split-head.sticky{position:sticky;top:32px;}}
-@media(max-width:960px){
-  .split-head,.split-body{grid-column:1 / -1;}
-  .split-head p:not(.kicker){max-width:52ch;}
-}
 
 /* ---------- Disziplinen ---------- */
 .tri{border-top:1px solid var(--ink);}
-.tri-row{display:grid;grid-template-columns:220px minmax(0,1fr);gap:32px;padding:32px 0;border-bottom:1px solid var(--line);}
-.tri-row .ph{aspect-ratio:4/3;overflow:hidden;background:var(--band);align-self:start;}
+.tri-row{display:grid;grid-template-columns:240px minmax(0,1fr) 260px;gap:32px;padding:28px 0;border-bottom:1px solid var(--line);align-items:start;}
+.tri-row .ph{aspect-ratio:3/2;overflow:hidden;background:var(--band);}
 .tri-row .ph img{width:100%;height:100%;object-fit:cover;}
 .tag-d{display:block;font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 10px;}
-.tri-row h3{margin:0 0 10px;}
-.tri-row p:not(.tag-d):not(.from){color:var(--ink2);font-size:16px;max-width:52ch;}
-.from{margin-top:18px !important;padding-top:14px;border-top:1px solid var(--line);font-size:14.5px;line-height:1.5;color:var(--muted);max-width:52ch;}
+.tri-text h3{margin:0 0 12px;}
+.tri-text p:not(.tag-d){color:var(--ink2);font-size:16px;max-width:48ch;}
+.from{padding-top:4px;font-size:14.5px;line-height:1.5;color:var(--muted);}
 .from b{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums;}
-.from .lbl{display:block;margin:0 0 4px;font-size:12px;}
+.from .lbl{display:block;margin:0 0 6px;font-size:12px;}
+@media(max-width:960px){
+  .tri-row{grid-template-columns:220px minmax(0,1fr);gap:24px 28px;}
+  .tri-row .from{grid-column:2;padding-top:0;}
+}
 @media(max-width:640px){
-  .tri-row{grid-template-columns:1fr;gap:20px;padding:28px 0;}
+  .tri-row{grid-template-columns:1fr;gap:18px;padding:28px 0;}
   .tri-row .ph{aspect-ratio:16/9;}
+  .tri-row .from{grid-column:1;}
 }
 
 /* ---------- Rechner ---------- */
-.calc-head{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:16px;margin-bottom:clamp(36px,5vw,56px);align-items:end;}
-.calc-head > div:first-child{grid-column:1 / span 7;}
-.calc-head h2{margin:0;}
-.calc-head p.calc-lead{grid-column:9 / -1;color:var(--ink2);}
-@media(max-width:960px){.calc-head > div:first-child,.calc-head p.calc-lead{grid-column:1 / -1;}}
+.sec-head,.calc-head{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:16px;margin-bottom:clamp(36px,5vw,56px);align-items:end;}
+.sec-head > div:first-child,.calc-head > div:first-child{grid-column:1 / span 7;}
+.sec-head h2,.calc-head h2{margin:0;}
+.sec-head p.sec-lead,.calc-head p.calc-lead{grid-column:9 / -1;color:var(--ink2);}
+@media(max-width:960px){.sec-head > div:first-child,.calc-head > div:first-child,.sec-head p.sec-lead,.calc-head p.calc-lead{grid-column:1 / -1;}}
 
 form.calc{border-top:1px solid var(--ink);}
 fieldset{border:0;margin:0;padding:32px 0;min-width:0;border-bottom:1px solid var(--line);}
@@ -255,10 +250,10 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
 
 /* ---------- Abschluss ---------- */
 .finish{padding:var(--sec) 0 0;}
-.finish-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:32px;align-items:end;}
+.finish-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:32px;align-items:center;}
 .finish-img{grid-column:1 / span 8;margin:0;aspect-ratio:16/10;overflow:hidden;background:var(--band);}
 .finish-img img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;}
-.finish-copy{grid-column:10 / -1;padding-bottom:4px;}
+.finish-copy{grid-column:9 / -1;}
 .finish-copy h2{font-size:clamp(28px,3vw,40px);margin-bottom:16px;}
 .finish-copy p{color:var(--ink2);}
 @media(max-width:960px){
@@ -268,25 +263,30 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
 
 /* ---------- Ratgeber ---------- */
 .rg-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink);}
-.rg-row{display:grid;grid-template-columns:36px minmax(0,1fr) 24px;gap:16px;padding:26px 0;border-bottom:1px solid var(--line);text-decoration:none;}
-.rg-n{font-size:14px;font-weight:500;color:var(--muted);padding-top:5px;font-variant-numeric:tabular-nums;}
-.rg-row h3{margin:0 0 8px;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:5px;text-decoration-thickness:1px;transition:text-decoration-color .15s;}
-.rg-row p:not(.tag-d){color:var(--ink2);font-size:15.5px;max-width:60ch;}
-.rg-row .tag-d{margin-bottom:8px;}
-.rg-arrow{align-self:center;color:var(--muted);transition:transform .15s,color .15s;}
+.rg-row{display:grid;grid-template-columns:48px minmax(0,5fr) minmax(0,6fr) 24px;gap:8px 32px;align-items:start;padding:28px 0;border-bottom:1px solid var(--line);text-decoration:none;}
+.rg-n{font-size:14px;font-weight:500;color:var(--muted);padding-top:3px;font-variant-numeric:tabular-nums;}
+.rg-title .tag-d{margin-bottom:8px;}
+.rg-title h3{margin:0;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:5px;text-decoration-thickness:1px;transition:text-decoration-color .15s;}
+.rg-desc{color:var(--ink2);font-size:15.5px;max-width:56ch;padding-top:22px;}
+.rg-arrow{padding-top:22px;color:var(--muted);transition:transform .15s,color .15s;}
 .rg-row:hover h3{text-decoration-color:var(--ink);}
 .rg-row:hover .rg-arrow{color:var(--accent);transform:translateX(4px);}
 @media(prefers-reduced-motion:reduce){.rg-row:hover .rg-arrow{transform:none;}}
-@media(max-width:560px){.rg-row{grid-template-columns:28px minmax(0,1fr);}.rg-arrow{display:none;}}
+@media(max-width:820px){
+  .rg-row{grid-template-columns:36px minmax(0,1fr);}
+  .rg-desc{grid-column:2;padding-top:0;}
+  .rg-arrow{display:none;}
+}
 
 /* ---------- Transparenz ---------- */
 .method{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:40px;align-items:start;}
-.method .ph{grid-column:1 / span 5;aspect-ratio:4/3;overflow:hidden;background:var(--paper);}
-.method .ph img{width:100%;height:100%;object-fit:cover;}
+.method{align-items:stretch;}
+.method .ph{grid-column:1 / span 5;position:relative;min-height:320px;overflow:hidden;background:var(--band);}
+.method .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
 .method-copy{grid-column:7 / -1;}
 .method-copy h2{margin-bottom:24px;}
 .method-copy p:not(.kicker){margin:0 0 16px;color:var(--ink2);max-width:56ch;}
-@media(max-width:900px){.method .ph,.method-copy{grid-column:1 / -1;}}
+@media(max-width:900px){.method .ph,.method-copy{grid-column:1 / -1;}.method .ph{min-height:0;aspect-ratio:4/3;}}
 details.deep{margin-top:28px;border-top:1px solid var(--ink);border-bottom:1px solid var(--line);}
 details.deep summary{cursor:pointer;padding:16px 0;font-weight:600;font-size:16px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
 details.deep summary::-webkit-details-marker{display:none;}
@@ -380,42 +380,42 @@ details.deep p{font-size:15px;color:var(--muted);padding-bottom:18px;margin:0;}
     </section>
 
     <section class="section" id="disziplinen" aria-labelledby="h-disz">
-      <div class="wrap split">
-        <div class="split-head sticky">
-          <p class="kicker">Bevor du rechnest</p>
-          <h2 id="h-disz">Drei Disziplinen. Ein Budget.</h2>
-          <p>Das meiste Geld landet in wenigen Posten. Hier siehst du, wof&uuml;r.</p>
-        </div>
-        <div class="split-body">
-          <div class="tri">
-            <article class="tri-row">
-              <div class="ph"><img src="schwimmen.jpg" width="1200" height="655" loading="lazy" style="object-position:57% 50%" alt="Freiwasserschwimmer mit oranger Badekappe beim Kraulen in einem ruhigen See."></div>
-              <div>
-                <p class="tag-d">Schwimmen</p>
-                <h3>Neoprenanzug, Brille, Kappe</h3>
-                <p>Bei kaltem Wasser meist Pflicht. Gebraucht gut zu bekommen, Brille und Kappe kaufst du neu.</p>
-                <p class="from" data-from="neo">&nbsp;</p>
-              </div>
-            </article>
-            <article class="tri-row">
-              <div class="ph"><img src="rad.jpg" width="1200" height="655" loading="lazy" style="object-position:42% 50%" alt="Nahaufnahme von Hinterrad und Antrieb eines Rennrads, das an einer Mauer lehnt."></div>
-              <div>
-                <p class="tag-d">Radfahren</p>
-                <h3>Das Rad ist der gr&ouml;&szlig;te Posten</h3>
-                <p>Hier sparst du gebraucht am meisten. F&uuml;r den Einstieg reicht ein solides Rennrad, kein Triathlonrad.</p>
-                <p class="from" data-from="rad">&nbsp;</p>
-              </div>
-            </article>
-            <article class="tri-row">
-              <div class="ph"><img src="laufen.jpg" width="1200" height="655" loading="lazy" style="object-position:52% 50%" alt="Ein L&auml;ufer in dunklen Laufschuhen setzt auf einer ruhigen Asphaltstra&szlig;e auf."></div>
-              <div>
-                <p class="tag-d">Laufen</p>
-                <h3>Gute Schuhe, vorher einlaufen</h3>
-                <p>Nie am Renntag zum ersten Mal tragen. Schuhe kaufst du am besten neu und l&auml;ufst sie 40 bis 60 km ein.</p>
-                <p class="from" data-from="schuhe">&nbsp;</p>
-              </div>
-            </article>
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <p class="kicker">Bevor du rechnest</p>
+            <h2 id="h-disz">Drei Disziplinen. Ein Budget.</h2>
           </div>
+          <p class="sec-lead">Das meiste Geld landet in wenigen Posten. Hier siehst du, wof&uuml;r.</p>
+        </div>
+        <div class="tri">
+          <article class="tri-row">
+            <div class="ph"><img src="schwimmen.jpg" width="1200" height="655" loading="lazy" style="object-position:57% 50%" alt="Freiwasserschwimmer mit oranger Badekappe beim Kraulen in einem ruhigen See."></div>
+            <div class="tri-text">
+              <p class="tag-d">Schwimmen</p>
+              <h3>Neoprenanzug, Brille, Kappe</h3>
+              <p>Bei kaltem Wasser meist Pflicht. Gebraucht gut zu bekommen, Brille und Kappe kaufst du neu.</p>
+            </div>
+            <p class="from" data-from="neo">&nbsp;</p>
+          </article>
+          <article class="tri-row">
+            <div class="ph"><img src="rad.jpg" width="1200" height="655" loading="lazy" style="object-position:42% 50%" alt="Nahaufnahme von Hinterrad und Antrieb eines Rennrads, das an einer Mauer lehnt."></div>
+            <div class="tri-text">
+              <p class="tag-d">Radfahren</p>
+              <h3>Das Rad ist der gr&ouml;&szlig;te Posten</h3>
+              <p>Hier sparst du gebraucht am meisten. F&uuml;r den Einstieg reicht ein solides Rennrad, kein Triathlonrad.</p>
+            </div>
+            <p class="from" data-from="rad">&nbsp;</p>
+          </article>
+          <article class="tri-row">
+            <div class="ph"><img src="laufen.jpg" width="1200" height="655" loading="lazy" style="object-position:52% 50%" alt="Ein L&auml;ufer in dunklen Laufschuhen setzt auf einer ruhigen Asphaltstra&szlig;e auf."></div>
+            <div class="tri-text">
+              <p class="tag-d">Laufen</p>
+              <h3>Gute Schuhe, vorher einlaufen</h3>
+              <p>Nie am Renntag zum ersten Mal tragen. Schuhe kaufst du am besten neu und l&auml;ufst sie 40 bis 60 km ein.</p>
+            </div>
+            <p class="from" data-from="schuhe">&nbsp;</p>
+          </article>
         </div>
       </div>
     </section>
@@ -573,22 +573,22 @@ details.deep p{font-size:15px;color:var(--muted);padding-bottom:18px;margin:0;}
     </section>
 
     <section class="section" id="ratgeber" aria-labelledby="h-ratgeber">
-      <div class="wrap split">
-        <div class="split-head sticky">
-          <p class="kicker">Mehr zum Thema</p>
-          <h2 id="h-ratgeber">Ratgeber f&uuml;r den Einstieg.</h2>
-          <p>Sechs kurze Artikel, die den Rechner erg&auml;nzen und alles abdecken, was vor der Ausr&uuml;stungsliste passiert.</p>
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <p class="kicker">Mehr zum Thema</p>
+            <h2 id="h-ratgeber">Ratgeber f&uuml;r den Einstieg.</h2>
+          </div>
+          <p class="sec-lead">Sechs kurze Artikel, die den Rechner erg&auml;nzen und alles abdecken, was vor der Ausr&uuml;stungsliste passiert.</p>
         </div>
-        <div class="split-body">
-          <ol class="rg-list">
-            <li><a class="rg-row" href="was-kostet-triathlon.html"><span class="rg-n">01</span><span><span class="tag-d">Kosten &amp; Budget</span><h3>Triathlon Kosten: Wie teuer ist Triathlon wirklich?</h3><p>Realistische Mindestkosten vom Sprint bis zum Ironman, aufgeschl&uuml;sselt nach Ausr&uuml;stung und Startgeld.</p></span><span class="rg-arrow" aria-hidden="true">&rarr;</span></a></li>
-            <li><a class="rg-row" href="triathlon-ausruestung-checkliste.html"><span class="rg-n">02</span><span><span class="tag-d">Checkliste</span><h3>Ausr&uuml;stung f&uuml;r Einsteiger</h3><p>Pflicht, empfohlen und optional, sortiert nach Schwimmen, Rad und Laufen.</p></span><span class="rg-arrow" aria-hidden="true">&rarr;</span></a></li>
-            <li><a class="rg-row" href="neu-oder-gebraucht-kaufen.html"><span class="rg-n">03</span><span><span class="tag-d">Kaufen</span><h3>Neu oder gebraucht kaufen?</h3><p>Wo sich Gebrauchtkauf lohnt, wo nicht, und worauf du dabei achten solltest.</p></span><span class="rg-arrow" aria-hidden="true">&rarr;</span></a></li>
-            <li><a class="rg-row" href="triathlonrad-oder-rennrad.html"><span class="rg-n">04</span><span><span class="tag-d">Ausr&uuml;stung</span><h3>Triathlonrad oder Rennrad?</h3><p>Aero-Vorteil, Preis und Vielseitigkeit im Vergleich, und ab wann sich ein eigenes TT-Rad lohnt.</p></span><span class="rg-arrow" aria-hidden="true">&rarr;</span></a></li>
-            <li><a class="rg-row" href="sprint-triathlon-einsteiger-budget.html"><span class="rg-n">05</span><span><span class="tag-d">Einstieg</span><h3>Sprint-Triathlon f&uuml;r Einsteiger</h3><p>Distanzen, n&ouml;tige Ausr&uuml;stung und realistische Kosten f&uuml;r deinen ersten Start.</p></span><span class="rg-arrow" aria-hidden="true">&rarr;</span></a></li>
-            <li><a class="rg-row" href="neoprenanzug-triathlon-kaufen.html"><span class="rg-n">06</span><span><span class="tag-d">Schwimmen</span><h3>Neoprenanzug: kaufen, leihen oder gebraucht?</h3><p>Wann du einen Neo brauchst, was er kostet und welcher Weg zu dir passt.</p></span><span class="rg-arrow" aria-hidden="true">&rarr;</span></a></li>
-          </ol>
-        </div>
+        <ol class="rg-list">
+            <li><a class="rg-row" href="was-kostet-triathlon.html"><span class="rg-n">01</span><span class="rg-title"><span class="tag-d">Kosten &amp; Budget</span><h3>Triathlon Kosten: Wie teuer ist Triathlon wirklich?</h3></span><p class="rg-desc">Realistische Mindestkosten vom Sprint bis zum Ironman, aufgeschl&uuml;sselt nach Ausr&uuml;stung und Startgeld.</p><span class="rg-arrow" aria-hidden="true">&rarr;</span></a></li>
+            <li><a class="rg-row" href="triathlon-ausruestung-checkliste.html"><span class="rg-n">02</span><span class="rg-title"><span class="tag-d">Checkliste</span><h3>Ausr&uuml;stung f&uuml;r Einsteiger</h3></span><p class="rg-desc">Pflicht, empfohlen und optional, sortiert nach Schwimmen, Rad und Laufen.</p><span class="rg-arrow" aria-hidden="true">&rarr;</span></a></li>
+            <li><a class="rg-row" href="neu-oder-gebraucht-kaufen.html"><span class="rg-n">03</span><span class="rg-title"><span class="tag-d">Kaufen</span><h3>Neu oder gebraucht kaufen?</h3></span><p class="rg-desc">Wo sich Gebrauchtkauf lohnt, wo nicht, und worauf du dabei achten solltest.</p><span class="rg-arrow" aria-hidden="true">&rarr;</span></a></li>
+            <li><a class="rg-row" href="triathlonrad-oder-rennrad.html"><span class="rg-n">04</span><span class="rg-title"><span class="tag-d">Ausr&uuml;stung</span><h3>Triathlonrad oder Rennrad?</h3></span><p class="rg-desc">Aero-Vorteil, Preis und Vielseitigkeit im Vergleich, und ab wann sich ein eigenes TT-Rad lohnt.</p><span class="rg-arrow" aria-hidden="true">&rarr;</span></a></li>
+            <li><a class="rg-row" href="sprint-triathlon-einsteiger-budget.html"><span class="rg-n">05</span><span class="rg-title"><span class="tag-d">Einstieg</span><h3>Sprint-Triathlon f&uuml;r Einsteiger</h3></span><p class="rg-desc">Distanzen, n&ouml;tige Ausr&uuml;stung und realistische Kosten f&uuml;r deinen ersten Start.</p><span class="rg-arrow" aria-hidden="true">&rarr;</span></a></li>
+            <li><a class="rg-row" href="neoprenanzug-triathlon-kaufen.html"><span class="rg-n">06</span><span class="rg-title"><span class="tag-d">Schwimmen</span><h3>Neoprenanzug: kaufen, leihen oder gebraucht?</h3></span><p class="rg-desc">Wann du einen Neo brauchst, was er kostet und welcher Weg zu dir passt.</p><span class="rg-arrow" aria-hidden="true">&rarr;</span></a></li>
+        </ol>
       </div>
     </section>
 
