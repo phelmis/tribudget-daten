@@ -1424,8 +1424,15 @@ function route(){
   main.style.display = '';
   onLegal = false;
   if(wasLegal){
-    const t = h ? document.getElementById(h) : null;
-    if(t) t.scrollIntoView(); else window.scrollTo(0,0);
+    // Sofort (ohne weiches Scrollen) und nach dem Layout noch einmal, damit der Browser
+    // die alte Scrollposition nicht zurueckholt.
+    const go = () => {
+      const t = h ? document.getElementById(h) : null;
+      if(t) t.scrollIntoView({ behavior:'instant', block:'start' }); else window.scrollTo({ top:0, behavior:'instant' });
+    };
+    go();
+    requestAnimationFrame(go);
+    setTimeout(go, 120);
   }
 }
 window.addEventListener('hashchange', route);
